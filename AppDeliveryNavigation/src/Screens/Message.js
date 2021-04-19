@@ -40,11 +40,12 @@ export default class Message extends Component{
                             បុគ្គលិកយើងខ្ញុំ សូមអរគុណ!
                        </Text>
                     </View>
-                    <View style={styles.successMessage}>
-                       <Text style={styles.Title}>
-                            រួចរាល់
-                       </Text>
-                    </View>
+
+                    <TouchableOpacity style={styles.successMessage}
+                        onPress={() => NavigationService.navigate(NAV_TYPES.MAIN_HOME01)} >
+                        <Text style={styles.Title}>រួចរាល់</Text>
+                    </TouchableOpacity>
+                    
                 </View>
                 
             </>
@@ -81,9 +82,11 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent:'center',
         alignItems: 'center',
+        marginLeft: 20,
+        marginRight: 20,
     },
     MeassageTitle:{
-        fontSize: 38,
+        fontSize: 30,
         color: 'black',
         textAlign: 'center'
     },

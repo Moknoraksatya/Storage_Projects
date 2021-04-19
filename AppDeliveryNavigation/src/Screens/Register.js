@@ -5,6 +5,7 @@ import {
     Image,
     View,
     TouchableOpacity,
+    TextInput
 } from 'react-native'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
@@ -39,7 +40,7 @@ export default class SignIn extends Component{
                         <Text style={styles.signIn}>ចុះឈ្មោះគណនី</Text>
                     </View>
                     <View style={styles.inputBox}>
-                        <Text style={styles.inputText}> ឈ្មោះហាង</Text>
+                        <TextInput style={styles.inputText}> ឈ្មោះហាង</TextInput>
                     </View>
                     <View style={styles.inputBox}>
                         <Text style={styles.inputText}> លេខទូរស័ព្ទ</Text>
@@ -57,11 +58,14 @@ export default class SignIn extends Component{
                         <Text style={styles.inputText}> លេខគណនីABA</Text>
                     </View>
                     <View style={styles.btnSignIn}>
-                        <Text style={styles.signInTitle}> សូមចូលគណនី</Text>
+                        <Text style={styles.signInTitle}> ចូលគណនី</Text>
                     </View>
-                    <View style={styles.SignInHeader}>
-                        <Text style={styles.signIn}>ចុះឈ្មោះគណនី</Text>
-                    </View>
+
+                    <TouchableOpacity style={styles.SignInHeader}
+                        onPress={() => NavigationService.navigate(NAV_TYPES.MAIN_HOME01)} >
+                        <Text style={styles.signIn}>ចូលគណនី</Text>
+                    </TouchableOpacity>
+                    
                 </View>
             </>
         )
@@ -73,7 +77,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
     },
     inner:{
-        flex: 0.15,
+        flex: 0.18,
         flexDirection: 'row',
         justifyContent: 'center',
         backgroundColor: 'white'

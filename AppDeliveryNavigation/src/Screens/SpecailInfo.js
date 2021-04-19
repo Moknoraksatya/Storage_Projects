@@ -110,7 +110,6 @@ export default class Home extends Component{
                         </View>
                         <View style={styles.col2}>
                             <Text style={styles.titleDetail} >៖​ <Text style={styles.status} >កំពុងដឹក</Text></Text>
-                            
                         </View>
                     </View>
                 </View>

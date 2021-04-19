@@ -38,7 +38,7 @@ const IntroNavigator = createStackNavigator(
     {
         initialRouteName:NAV_TYPES.LOGIN
     }
-    )
+)
 
 
 const HomeNavigation = createStackNavigator(
@@ -61,6 +61,7 @@ const HomeNavigation = createStackNavigator(
 )
 const Home01Navigation = createStackNavigator(
     {
+       
         [NAV_TYPES.MAIN_HOME01]:{
             screen:Home,
             navigationOptions:{
@@ -126,6 +127,8 @@ const Home01Navigation = createStackNavigator(
         },
     }
 )
+
+
 
 
 const PhoneCallNavigation = createStackNavigator(
@@ -228,14 +231,14 @@ const MainNavigation = createStackNavigator(
     }
 )
 
-HomeNavigation.navigationOptions = ({ navigation }) => {
+Home01Navigation.navigationOptions = ({ navigation }) => {
   let tabBarVisible;
   if (navigation.state.routes.length > 1) {
     navigation.state.routes.map(route => {
-      if (route.routeName === NAV_TYPES.MAP) {
-        tabBarVisible = false;
-      } else {
+      if (route.routeName === NAV_TYPES.MAIN_HOME01 || route.routeName === NAV_TYPES.FLOW) {
         tabBarVisible = true;
+      } else {
+        tabBarVisible = false;
       }
     });
   }

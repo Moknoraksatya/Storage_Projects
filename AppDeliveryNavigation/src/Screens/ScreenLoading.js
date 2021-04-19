@@ -14,7 +14,7 @@ export default class Home extends Component{
     }
     componentDidMount(){
         setTimeout(() => {
-            NavigationService.navigate(NAV_TYPES.CORE)
+            NavigationService.navigate(NAV_TYPES.LOGIN)
         }, 2000);
     }
     render(){
