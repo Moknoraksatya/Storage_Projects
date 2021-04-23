@@ -1,0 +1,27 @@
+export const NAV_TYPES = {
+    LOGIN : "LOGIN",
+    HOME01 : "HOME01",
+    MAIN_HOME01: "MAIN_HOME01",
+    MAP01 : "MAP01",
+    SCREEN_02 : "SCREEN_02",
+    REPORT : "REPORT",
+    RESULTPACKAGE : "RESULTPACKAGE",
+    FLOW : "FLOW",
+    INFO : "INFO",
+    MESSAGE : "MESSAGE",
+    SPECAILINFO : "SPECAILINFO",
+    REGISTER : "REGISTER",
+    HOME : "HOME",
+    INTRO: "INTRO",
+    CORE: "CORE",
+    LOADING: "LOADING",
+    MAIN: "MAIN",
+    MAIN_HOME: "MAIN_HOME",
+    PHONE_CALL: "PHONE_CALL",
+    MAP: "MAP",
+
+
+    MENU: "MENU",
+    RECEIPT: "RECEIPT",
+    BILL: "BILL",
+};
