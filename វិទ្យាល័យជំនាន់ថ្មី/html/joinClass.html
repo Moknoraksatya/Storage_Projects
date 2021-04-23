@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="../style/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="fontawesome-free-5.3.1-web/css/all.min.css"> -->
+    <link rel="stylesheet" href="../style/joinClass.css">
+    <!-- js -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>CreateClass</title>
+
+
+<style>
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+</style>
+
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 header">
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 leftBar" >
+                        <div id="mySidenav" class="sidenav">
+                            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                            <a href="#">About</a>
+                            <a href="#">Services</a>
+                            <a href="#">Clients</a>
+                            <a href="#">Contact</a>
+                        </div>
+                        
+                        <div id="main">
+                            <span style="font-size:30px;cursor:pointer;color: cornsilk;" onclick="openNav()">&#9776;</span>
+                        </div>
+                        
+                        <script>
+                            function openNav() {
+                                document.getElementById("mySidenav").style.width = "250px";
+                                document.getElementById("main").style.marginLeft = "250px";
+                            }
+                            
+                            function closeNav() {
+                                document.getElementById("mySidenav").style.width = "0";
+                                document.getElementById("main").style.marginLeft= "0";
+                            }
+                        </script>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 headerTitle">
+                        <h4 id="headerTitle">PREKELAB HIGH SCHOOL</h4>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 addTo">
+                            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" style="margin-top: 5%;">+</button>
+                            <!-- Modal -->
+                            <div class="modal fade" id="myModal" role="dialog">
+                              <div class="modal-dialog">
+                              
+                                <!-- Modal content-->
+                                <div class="modal-content"style="text-align: left;">
+                                  <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                  </div>
+                                    <a href="../html/createClass.html">
+                                        <div class="modal-body" style="border-bottom: 1px solid #e4e9eb;">
+                                            <p>Create Class</p>
+                                        </div>
+                                    </a>
+                                    <a href="../html/joinClass.html">
+                                        <div class="modal-body">
+                                            <p>Join Class</p>
+                                          </div>
+                                    </a>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        <!-- <p id="addTo">+</p> -->
+                    </div>
+                </div>
+            </div>
+        <!-- form create -->
+        <div  class="contianer-fluid">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 createContainer">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 form" style="width: 50%;">
+                        <h3>Class Code</h3>
+                        <p>Ask your teacher for the class code, and then enter here.</p>   
+                            <input class="InputBox" type="text" placeholder="Enter Your Name" name="email" id="email" required><hr/>
+                            <button class="btnCreate" id="join" style="float: right;">Join</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end form create -->
+        <!-- -----------Test-------------- -->
+   
+        <div class="contianer-fluid">
+            <div class="row">
+                <div class="col-xl-12 footer-container">
+                    <div class="row">
+                        <div class="col-xl-12 footer">
+                            <center>
+                                <img class="footer-header" src="../img/footer-image.png" alt="footer-header">
+                            </center>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-12 footer-body">
+                            <div class="row">
+                                <div class="col-xl-4 footer-body-box1">
+                                <div class="foot-box">
+                                        <center>
+                                            <p class="p-footer"> Prek Leap High School</p>
+                                            <p class="p-footer"> was built in 2021 in order to improve</p>
+                                            <p class="p-footer">the education</p>
+                                        </center>
+                                </div>
+                                </div>
+                                <div class="col-xl-4 footer-body-box1">
+                                    <div class="foot-box">
+                                        <center>
+                                            <p class="p-footer"> Prek Leap High School</p>
+                                            <p class="p-footer"> was built in 2021 in order to improve</p>
+                                            <p class="p-footer">the education</p>
+                                        </center>
+                                </div>
+                                </div>
+                                <div class="col-xl-4 footer-body-box1">
+                                    <div class="foot-box">
+                                        <center>
+                                            <p class="p-footer"> Prek Leap High School</p>
+                                            <p class="p-footer"> was built in 2021 in order to improve</p>
+                                                <p class="p-footer">the education</p>
+                                        </center>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body{
+                background-image: linear-gradient(to right,rgb(235, 166, 225),rgb(235,156,40));
+            }
+            input{
+                height: 45px;
+                width: 90%;
+                font-size: 18px;
+                border: 2px solid #CB4335;
+            }
+            button{
+                width: 90%;
+                /* font-size: 13px; */
+                border: 2px solid #CB4335;
+                height: 47px;
+                background-color: white;
+            }
+            .login{
+                width: 35%;
+                height: 650px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%); 
+                background-color: white;
+                border-radius: 10px;
+            }
+           .box{
+               width: 90%;
+               height: 50%;
+               position: absolute;
+               top: 50%;
+               left: 50%;
+               transform: translate(-50%,-50%);
+               /* background-color: red; */
+               /* margin-top: ; */
+           }
+            label{
+                font-size: 25px;
+                color: black;
+                padding-top: 10px;
+            }
+            input{
+                margin-top: 3%;
+                margin-bottom: 3%;
+            }
+            input:hover{
+                border:2px solid black;
+                box-shadow: 3px 3px 3px 3px black;
+            }
+            button:hover    {
+                border:5px solid #27AE60 ;
+                border-radius: 5px;
+                background-image: linear-gradient(to right,rgb(235, 166, 225),rgb(235,156,40));
+
+            }
+            .open-button {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  top: 23px;
+  left: 28px;
+  width: 280px;
+}
+.form-popup {
+  display: none;
+ 
+}
+        </style>
+    </head>
+    <body>
+        <button class="open-button" onclick="openForm()">Open Form</button>
+        <div class="form-popup" id="myForm">
+            <div class="login">
+                <div class="box">
+                    <center>
+                            <label for="text">Username:</label>
+                            <input type="text" name="username" required placeholder="username">
+                            <label for="text">Password:</label>
+                            <input type="password" name="password" required placeholder="password">
+                            <button class="btn" onclick="message()" style="margin-top: 10px;">Connect</button>
+                            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
+        function message(){
+            alert("Server is not ready yet, please come back later!");
+
+        }
+        function openForm(){
+            document.getElementById("myForm").style.display="block";
+        }
+        function closeForm(){
+            document.getElementById("myForm").style.display="none";
+        }
+    </script>
+</html>
