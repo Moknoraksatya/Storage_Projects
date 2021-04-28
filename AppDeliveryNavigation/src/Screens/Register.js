@@ -5,7 +5,9 @@ import {
     Image,
     View,
     TouchableOpacity,
-    TextInput
+    TextInput,
+    ScrollView,
+    KeyboardAvoidingView
 } from 'react-native'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
@@ -24,10 +26,12 @@ export default class SignIn extends Component{
         
         } 
     }
+    
     render(){
         return(
             <>
-                <View style={styles.container}>
+            <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : 'null'} style={styles.container}>
+                <ScrollView style={{flex:1}}>
                     <View style={styles.inner}>
                         <View style={styles.benner}>
                             <Image
@@ -39,45 +43,54 @@ export default class SignIn extends Component{
                     <View style={styles.SignInHeader}>
                         <Text style={styles.signIn}>ចុះឈ្មោះគណនី</Text>
                     </View>
-                    <View style={styles.inputBox}>
-                        <TextInput style={styles.inputText}> ឈ្មោះហាង</TextInput>
+                    <View style={styles.inputBox1}>
+                        <TextInput style={styles.inputBox}> ឈ្មោះហាង</TextInput>
                     </View>
-                    <View style={styles.inputBox}>
-                        <Text style={styles.inputText}> លេខទូរស័ព្ទ</Text>
+                    <View style={styles.inputBox1}>
+                        <TextInput style={styles.inputBox}> លេខទូរស័ព្ទ</TextInput>
                     </View>
-                    <View style={styles.inputBox}>
-                        <Text style={styles.inputText}> លេខសម្ងាត់</Text>
+                    <View style={styles.inputBox1}>
+                        <TextInput style={styles.inputBox}> លេខសម្ងាត់</TextInput>
                     </View>
-                    <View style={styles.inputBox}>
-                        <Text style={styles.inputText}> បញ្ចាក់លេខសម្ងាត់</Text>
+                    <View style={styles.inputBox1}>
+                        <TextInput style={styles.inputBox}> បញ្ចាក់លេខសម្ងាត់</TextInput>
                     </View>
-                    <View style={styles.inputBox}>
-                        <Text style={styles.inputText}> ឈ្មោះគណនីABA</Text>
+                    <View style={styles.inputBox1}>
+                        <TextInput style={styles.inputBox}> ឈ្មោះគណនីABA</TextInput>
                     </View>
-                    <View style={styles.inputBox}>
-                        <Text style={styles.inputText}> លេខគណនីABA</Text>
-                    </View>
-                    <View style={styles.btnSignIn}>
-                        <Text style={styles.signInTitle}> ចូលគណនី</Text>
+                    <View style={styles.inputBox1}>
+                        <TextInput style={styles.inputBox}> លេខគណនីABA</TextInput>
                     </View>
 
+                    <TouchableOpacity style={styles.btnSignIn}
+                        onPress={() => NavigationService.navigate(NAV_TYPES.VERIFYCODE)} >
+                        <Text style={styles.signInTitle}> ចូលគណនី</Text>
+                    </TouchableOpacity>
+{/* 
+                    <View style={styles.btnSignIn}>
+                        <Text style={styles.signInTitle}> ចូលគណនី</Text>
+                    </View> */}
+                    
                     <TouchableOpacity style={styles.SignInHeader}
                         onPress={() => NavigationService.navigate(NAV_TYPES.MAIN_HOME01)} >
                         <Text style={styles.signIn}>ចូលគណនី</Text>
                     </TouchableOpacity>
                     
-                </View>
+                {/* </View> */}
+                </ScrollView>
+                </KeyboardAvoidingView>
             </>
         )
     }
 }
+
 const styles = StyleSheet.create({
     container:{
         flex: 1,
         backgroundColor: 'white',
     },
     inner:{
-        flex: 0.18,
+        flex: 0.12,
         flexDirection: 'row',
         justifyContent: 'center',
         backgroundColor: 'white'
@@ -86,7 +99,6 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        margin: 10,
     },
     centerLogo: {
         flex: 1,
@@ -104,7 +116,7 @@ const styles = StyleSheet.create({
         color: '#1E90FF',
     },
     inputBox:{
-        flex: 0.1,
+        flex: 0.08,
         flexDirection: 'row',
         alignItems: 'center',
         marginLeft:'10%',
@@ -113,27 +125,49 @@ const styles = StyleSheet.create({
         borderRadius: 50,
         borderColor: '#000080',
         borderWidth: 2,
-    },
-    inputText:{
-        fontSize: 20,
+        fontSize: 16,
+        padding: 10,
+        height: 40,
+        margin: 12,
+        borderWidth: 1,
         color: 'grey',
-        paddingLeft: 20,
     },
+    // inputText:{
+    //     fontSize: 20,
+    //     color: 'grey',
+    //     paddingLeft: 20,
+    // },
     btnSignIn:{
-        flex: 0.1,
+        // flex: 0.5,
+        // flexDirection: 'row',
+        // alignItems: 'center',
+        // justifyContent: 'center',
+        // marginLeft:'10%',
+        // marginRight:'10%',
+        // margin: 10,
+        // borderRadius: 50,
+        // borderColor: '#4682B4',
+        // backgroundColor:'#4682B4',
+        // borderWidth: 2,
+        flex: 0.5,
         flexDirection: 'row',
-        alignItems: 'center',
+        // alignItems: 'center',
         justifyContent: 'center',
         marginLeft:'10%',
         marginRight:'10%',
         margin: 10,
         borderRadius: 50,
-        borderColor: '#4682B4',
-        backgroundColor:'#4682B4',
+        borderColor: '#000080',
         borderWidth: 2,
+        fontSize: 16,
+        padding: 7,
+        height: 40,
+        margin: 12,
+        borderWidth: 1,
+        backgroundColor: '#000080',
     },
     signInTitle:{
-        fontSize: 20,
+        fontSize: 16,
         color: 'white',
     },
   });

@@ -22,7 +22,8 @@ import Entypo from 'react-native-vector-icons/Entypo'
 import MessageContainer from '../Containers/MessageContainer'
 import SpecailInfoContainer from '../Containers/SpecailInfoContainer'
 import RegisterContainer from '../Containers/RegisterContainer'
-
+import VerifyCodeContainer from '../Containers/VerifyCodeContainer'
+import SpecailInfoInReportContainer from '../Containers/SpecailInfoInReportContainer'
 
 
 const IntroNavigator = createStackNavigator(
@@ -121,6 +122,18 @@ const Home01Navigation = createStackNavigator(
         },
         [NAV_TYPES.REGISTER]:{
             screen:RegisterContainer,
+            navigationOptions:{
+                headerShown:false
+            }
+        },
+        [NAV_TYPES.VERIFYCODE]:{
+            screen:VerifyCodeContainer,
+            navigationOptions:{
+                headerShown:false
+            }
+        },
+        [NAV_TYPES.SPECAILINFODELIVERY]:{
+            screen:SpecailInfoInReportContainer,
             navigationOptions:{
                 headerShown:false
             }

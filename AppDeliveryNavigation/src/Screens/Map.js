@@ -6,6 +6,9 @@ import {
     Image,
     View,
     TouchableOpacity,
+    ScrollView,
+    TextInput,
+    KeyboardAvoidingView,
 } from 'react-native'
 import MapView from 'react-native-maps';
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
@@ -28,7 +31,8 @@ export default class Home extends Component{
     render(){
         return(
             <>
-                <View style={styles.container}>
+            <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : 'null'} style={styles.container}>
+                <ScrollView style={{flex:1}}>
                     <View style={styles.mapBox}>
                         <MapView style={styles.map}
                             initialRegion={{
@@ -38,10 +42,6 @@ export default class Home extends Component{
                             longitudeDelta: 0.0421,
                             }}
                         />
-                        {/* <Image
-                            style={styles.mapImage}
-                            source={require('../Assets/images/apple-maps-feature-image.jpg')}
-                        /> */}
                         <View style={styles.btnBack}>
                             <TouchableOpacity style={styles.back}
                                 onPress={() => NavigationService.goBack()} >
@@ -55,30 +55,28 @@ export default class Home extends Component{
                         <Text style={styles.proTitle}>សូមបញ្ចូលចំនួនអីវ៉ាន</Text>
                     </View>
                     <View style={styles.TotalPackage}>
-                        <Text style={styles.packageTitle} >សូមបញ្ចូលចំនួនកញ្ចប់សរុប</Text>
+                        <TextInput style={styles.inputBox} placeholder={'សូមបញ្ចូលចំនួនកញ្ចប់សរុប'}></TextInput>
                     </View>
                     <TouchableOpacity style={styles.footer}
                         onPress={()=>{NavigationService.navigate(NAV_TYPES.MESSAGE)}}>
                         <Text style={styles.call} >រួចរាល់</Text>
                     </TouchableOpacity>
-                   
-                </View>
+                </ScrollView>
+                </KeyboardAvoidingView>
             </>
         )
     }
 }
 const styles = StyleSheet.create({
-
-
-
-
     container:{
         flex: 1,
         backgroundColor: 'white',
+        position: 'relative',
     },
     map:{
-        width: '100%',
-        height: '100%',
+        flex:1,
+        flexDirection: 'row',
+        height: 480,
     },
     icon:{
         marginLeft: 4,
@@ -129,18 +127,16 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         position: 'absolute',
     },
-    mapImage:{
-        width: 350,
-        height: 365,
-    },
     inputProTitle:{
         flex: 0.1,
+        height: 50,
         flexDirection: 'row',
         justifyContent:'center',
         alignItems:'center',
+        backgroundColor:'white',
     },
     proTitle:{
-        fontSize: 27,
+        fontSize: 25,
         color:'black',
     },
     PackageBox: {
@@ -162,9 +158,9 @@ const styles = StyleSheet.create({
         justifyContent:'center',
         alignItems:'flex-end',
     },
-    packageTitle:{
-        fontSize: 23,
-        color:'grey',
+    inputBox:{
+        fontSize: 20,
+        color: 'grey',
     },
     TotalPackage:{
         flex: 0.1,
@@ -174,24 +170,21 @@ const styles = StyleSheet.create({
         borderWidth: 3,
         borderRadius: 10,
         margin: 20,
-        marginTop: 2,
+        marginTop: 5,
         alignItems: 'center',
         justifyContent : 'center',
     },
 
     footer:{
-        flex: 1,
-        width: '100%',
-        height: '10%',
-        bottom: 0,
+        flex: 0.1,
+        height: 50,
         flexDirection: 'row',
         backgroundColor: '#000080',
         justifyContent: 'center',
         alignItems: 'center',
-        position: 'absolute',
     },
     call:{
-        fontSize: 25,
+        fontSize: 20,
         color: 'white',
     },
   });

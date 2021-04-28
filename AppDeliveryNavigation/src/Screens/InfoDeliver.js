@@ -37,6 +37,9 @@ export default class Home extends Component{
                     <View style={styles.ads}>
                         <View style={styles.bennerAds}>
                             <Text style={styles.adsTitle}>ព័ត៌មានពីដំណើរការដឹកជញ្ជូន​</Text>
+                            <Text style={styles.adsTitleSub}>ស្ថិតនៅក្នុងការគ្រប់គ្រងរបស់យើងខ្ញុំ</Text>
+                            <Text style={styles.adsTitleSub}>យើងខ្ញុំមិនទាន់បានបញ្ចូនទៅអតិថីជន</Text>
+                            <Text style={styles.adsTitleSub}>របស់អ្នកនៅឡើយ។</Text>
                         </View>
                     </View>
 
@@ -45,15 +48,31 @@ export default class Home extends Component{
                         currentPosition={4}
                         // labels={labels}
                     />
-                    
-                    <View style={styles.ads}>
-                        <View style={styles.bennerAds}>
-                            <Text style={styles.adsTitle}>ព័ត៍មាននិង លក្ខណ៍</Text>
+                    <View style={styles.description}>
+                        <Text style={styles.noteTitle} >ព័ត៍មានអំពីការដឹកជញ្ចូន{'\n'}<Text style={styles.Title} >សូមបញ្ជាក់ជូនថារាល់ទំនិញទាំងអស់ដែលលោកអ្នកបានផ្ញើ ត្រូវតែជាទំនិញវិចខ្ចប់អោយបានស្អាត{'\n'}ព្រោះយើងខ្ញុំមិនទទួលវិចខ្ចប់បន្ថែមឡើយ{'\n'}ប្រសិនបើអ្នកបានផ្ញើទំនិញដែលមានបញ្ហាដែលអាចបាក់បែក សូមវិចខ្ចប់អោយមានសុវត្តិភាព{'\n'}និងធ្វើជាសញ្ញាសម្គាល់អោយយើងខ្ញុំបានដឹងផង ។</Text></Text>
+                    </View>
+                    <View style={styles.description1}>
+                        <Text style={styles.noteTitle} >លក្ខណ៏អំពីការដឹកជញ្ជូន{'\n'}<Text style={styles.Title} >សូមបញ្ជាក់ជូនថារាល់ទំនិញទាំងអស់ដែលលោកអ្នកបានផ្ញើ ក្រុមហ៊ុនយើងខ្ញុំមិនមាន ការឆែកត្រួតពិនិត្យឡើយ ប្រសិនមានការករណីទំនិញរបស់លោកអ្នកជាទំនិញខុសច្បាប់យើងខ្ញុំ និងមិនទទួលខុសត្រូវឡើយ សូមលោកអ្នកទទួលខុសត្រូវចំពោះមុខច្បាប់ដោយខ្លួនុំឯកឯង</Text></Text>
+                    </View>
+                    <View style={styles.danger}>
+                        <View style={styles.circle}>
+                        
+                        </View>
+                        <View style={styles.circle}>
+                        
+                        </View>
+                        <View style={styles.circle}>
+                        
+                        </View>
+                        <View style={styles.circle}>
+                        
                         </View>
                     </View>
-                    <TouchableOpacity style={styles.footer}>
-                        <Text style={styles.call} >ហៅឥលូវ</Text>
+                    <TouchableOpacity style={styles.footer}
+                        onPress={()=>{NavigationService.navigate(NAV_TYPES.HOME01)}}>
+                        <Text style={styles.callDeliver} >ខលទៅអ្នកដឹក</Text>
                     </TouchableOpacity>
+                    
                 </View>
             </>
         )
@@ -63,10 +82,11 @@ const styles = StyleSheet.create({
     container:{
         flex: 1,
         backgroundColor: 'white',
+        position:'relative'
     },
     
     ads:{
-        flex: 0.3,
+        flex: 0.4,
         flexDirection: 'row',
         marginBottom: 50,
     },
@@ -75,14 +95,20 @@ const styles = StyleSheet.create({
         margin:10,
         marginBottom: 10,
         borderWidth: 3,
-        borderColor:'skyblue',
+        borderColor:'#000080',
         justifyContent:'center',
         alignItems:'center',
+        // backgroundColor:'yellow',
+        borderRadius:5,
     },
     
     adsTitle:{
         fontSize: 25,
         color:'red',
+    },
+    adsTitleSub:{
+        fontSize: 25,
+        color:'black',
     },
     order:{
         flex: 0.2,
@@ -90,16 +116,56 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         
     },
+    description:{
+        flex:0.15,
+        flexDirection:'row',
+        borderTopColor: 'skyblue',
+        borderTopWidth: 1,
+        margin: 10,
+        marginBottom:0,
+    },
+    description1:{
+        flex:0.15,
+        flexDirection:'row',
+        margin: 10,
+        marginTop: 0,
+        marginBottom:0,
+    },
+    noteTitle:{
+        color: 'red',
+        fontSize:11,
+    },  
+    Title:{
+        color: 'black',
+        fontSize:11,
+    },  
+    danger:{
+        flex:0.13,
+        flexDirection:'row',
+        // backgroundColor:'red',
+        justifyContent:'center',
+        alignItems:'center',
+    },
+    circle: {
+        height: 50,
+        width: 50,
+        borderRadius: 50,
+        borderWidth:1,
+        borderColor:'skyblue',
+        margin: 10,
+    },
     footer:{
-        flex: 0.1,
-        top: 140,
+        width: '100%',
+        height: 60,
         flexDirection: 'row',
         backgroundColor: 'red',
         justifyContent: 'center',
         alignItems: 'center',
+        position: 'absolute',
+        bottom: 0,
     },
-    call:{
-        fontSize: 25,
+    callDeliver:{
+        fontSize: 20,
         color: 'white',
     },
   });

@@ -34,15 +34,15 @@ export default class Home extends Component{
                     </View>
                     <View style={styles.row} >
                        <View style={styles.col1} >
-                            <Text style={styles.titleDetail}>#123456</Text>
+                            <Text style={styles.titleDetail}>លេខកូដទំនិញ</Text>
                        </View>
                        <View style={styles.col2}>
-                            
+                       <Text style={styles.titleDetail}>៖​ #123456</Text>
                        </View>
                     </View>
                     <View style={styles.row} >
                         <View style={styles.col1} >
-                            <Text style={styles.titleDetail}>កាលបរិច្ឆេទ.</Text>
+                            <Text style={styles.titleDetail}>កាលបរិច្ឆេទ</Text>
                         </View>
                         <View style={styles.col2}>
                             <Text style={styles.titleDetail}>៖ ៥ មេសា ២០២១</Text>
@@ -50,7 +50,7 @@ export default class Home extends Component{
                     </View>
                     <View style={styles.row} >
                         <View style={styles.col1} >
-                            <Text style={styles.titleDetail} >ទំនិញ.</Text>
+                            <Text style={styles.titleDetail} >ប្រភេទទំនិញ</Text>
                         </View>
                         <View style={styles.col2}>
                             <Text style={styles.titleDetail} >៖ សៀវភៅ</Text>
@@ -58,15 +58,7 @@ export default class Home extends Component{
                     </View>
                     <View style={styles.row} >
                         <View style={styles.col1} >
-                            <Text style={styles.titleDetail} >ទីតាំងទទួល</Text>
-                        </View>
-                        <View style={styles.col2}>
-                            <Text style={styles.titleDetail} >៖ 017999844</Text>
-                        </View>
-                    </View>
-                    <View style={styles.row} >
-                        <View style={styles.col1} >
-                            <Text style={styles.titleDetail} >ពីហាង.</Text>
+                            <Text style={styles.titleDetail} >ពីហាង</Text>
                         </View>
                         <View style={styles.col2}>
                             <Text style={styles.titleDetail} >៖ MST Shop</Text>
@@ -74,7 +66,7 @@ export default class Home extends Component{
                     </View>
                     <View style={styles.row} >
                         <View style={styles.col1} >
-                            <Text style={styles.titleDetail} >លេខហាង.</Text>
+                            <Text style={styles.titleDetail} >លេខអ្នកផ្ញើ</Text>
                         </View>
                         <View style={styles.col2}>
                             <Text style={styles.titleDetail} >៖ 086995253</Text>
@@ -82,7 +74,23 @@ export default class Home extends Component{
                     </View>
                     <View style={styles.row} >
                         <View style={styles.col1} >
-                            <Text style={styles.titleDetail}>អ្នកដឹក.</Text>
+                            <Text style={styles.titleDetail} >ទីតាំងទទួល</Text>
+                        </View>
+                        <View style={styles.col2}>
+                            <Text style={styles.titleDetail} >៖ ទួលគោក</Text>
+                        </View>
+                    </View>
+                    <View style={styles.row} >
+                        <View style={styles.col1} >
+                            <Text style={styles.titleDetail} >លេខអ្នកទទួល</Text>
+                        </View>
+                        <View style={styles.col2}>
+                            <Text style={styles.titleDetail} >៖ 0979888048</Text>
+                        </View>
+                    </View>
+                    <View style={styles.row} >
+                        <View style={styles.col1} >
+                            <Text style={styles.titleDetail}>អ្នកដឹកឈ្មោះ</Text>
                         </View>
                         <View style={styles.col2}>
                             <Text style={styles.titleDetail} >៖ វេងសេង</Text>
@@ -90,7 +98,7 @@ export default class Home extends Component{
                     </View>
                     <View style={styles.row} >
                         <View style={styles.col1} >
-                            <Text style={styles.titleDetail} >លេខអ្នកដឹក.</Text>
+                            <Text style={styles.titleDetail} >លេខអ្នកដឹក</Text>
                         </View>
                         <View style={styles.col2}>
                             <Text style={styles.titleDetail}>៖ 0975523392</Text>
@@ -98,7 +106,7 @@ export default class Home extends Component{
                     </View>
                     <View style={styles.row} >
                         <View style={styles.col1} >
-                            <Text style={styles.titleDetail} >តម្លៃសរុប.</Text>
+                            <Text style={styles.titleDetail} >តម្លៃទំនិញ</Text>
                         </View>
                         <View style={styles.col2}>
                             <Text style={styles.titleDetail} >៖ 10$</Text>
@@ -106,12 +114,32 @@ export default class Home extends Component{
                     </View>
                     <View style={styles.row} >
                         <View style={styles.col1} >
-                            <Text style={styles.titleDetail} >ស្ថានភាព.</Text>
+                            <Text style={styles.titleDetail} >តម្លៃសេវា</Text>
+                        </View>
+                        <View style={styles.col2}>
+                            <Text style={styles.titleDetail} >៖ 6000៛</Text>
+                        </View>
+                    </View>
+                    <View style={styles.row} >
+                        <View style={styles.col1} >
+                            <Text style={styles.titleDetail} >តម្លៃសរុប</Text>
+                        </View>
+                        <View style={styles.col2}>
+                            <Text style={styles.titleDetail} >៖ 11.5$</Text>
+                        </View>
+                    </View>
+                    <View style={styles.row} >
+                        <View style={styles.col1} >
+                            <Text style={styles.titleDetail} >ស្ថានភាព</Text>
                         </View>
                         <View style={styles.col2}>
                             <Text style={styles.titleDetail} >៖​ <Text style={styles.status} >កំពុងដឹក</Text></Text>
                         </View>
                     </View>
+                    <TouchableOpacity style={styles.footer}
+                        onPress={()=>{NavigationService.navigate(NAV_TYPES.INFO)}}>
+                        <Text style={styles.check} >ពិនិត្យមើល</Text>
+                    </TouchableOpacity>
                 </View>
             </>
         )
@@ -121,9 +149,10 @@ const styles = StyleSheet.create({
     container:{
         flex: 1,
         backgroundColor: 'white',
+        position: 'relative',
     },
     inner:{
-        flex: 0.15,
+        flex: 0.1,
         flexDirection: 'row',
         justifyContent: 'center',
         backgroundColor: 'white'
@@ -145,12 +174,12 @@ const styles = StyleSheet.create({
         marginRight: 30,
     },
     col1:{
-        flex: 0.27,
+        flex: 0.35,
         flexDirection: 'column',
         justifyContent: 'center',
     },
     col2:{
-        flex: 0.73,
+        flex: 0.65,
         flexDirection: 'column',
         justifyContent: 'center',
     },
@@ -160,6 +189,20 @@ const styles = StyleSheet.create({
     status:{
         fontSize: 18,
         color: '#32CD32'
+    },
+    footer:{
+        width: '100%',
+        height: 60,
+        flexDirection: 'row',
+        backgroundColor: '#000080',
+        justifyContent: 'center',
+        alignItems: 'center',
+        position: 'absolute',
+        bottom: 0,
+    },
+    check:{
+        fontSize: 20,
+        color: 'white',
     },
   });
   

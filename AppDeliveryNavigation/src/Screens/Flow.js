@@ -3,6 +3,9 @@ import {Text,StyleSheet,
     Image,
     View,
     TouchableOpacity,
+    ScrollView,
+    TextInput,
+    KeyboardAvoidingView,
 } from 'react-native'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
@@ -21,6 +24,8 @@ export default class ResultPackage extends Component{
     render(){
         return(
             <>
+            <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : 'null'} style={styles.container}>
+                <ScrollView style={{flex:1}}>
                 <View style={styles.container}>
                     <View style={styles.inner}>
                         <View style={styles.benner}>
@@ -29,7 +34,7 @@ export default class ResultPackage extends Component{
                     </View>
                     
                     <View style={styles.TotalPackage}>
-                        <Text style={styles.packageTitle} >សូមបញ្ចូលចំនួនកញ្ចប់សរុប</Text>
+                        <TextInput style={styles.packageTitle} placeholder={'សូមបញ្ចូលចំនួនកញ្ចប់សរុប'}></TextInput>
                     </View> 
                     <View style={styles.containSceneBox}>
                         <View style={styles.scaneBox}>
@@ -51,6 +56,8 @@ export default class ResultPackage extends Component{
                     </View>
 
                 </View>
+                </ScrollView>
+                </KeyboardAvoidingView>
             </>
         )
     }
@@ -79,9 +86,10 @@ const styles = StyleSheet.create({
     packageTitle:{
         fontSize: 23,
         color:'grey',
+        height: 80,
     },
     TotalPackage:{
-        flex: 0.15,
+        flex: 0.1,
         flexDirection: 'row',
         backgroundColor: '#F8F8FF',
         borderColor: '#000080',

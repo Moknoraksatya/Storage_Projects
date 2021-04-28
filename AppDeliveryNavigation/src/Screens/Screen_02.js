@@ -28,8 +28,57 @@ export default class Screen_02 extends Component{
                         />
                     </View>     
                 </View>
+
+
+                <View style={styles.listContainer}>
+                <TouchableOpacity style={styles.list}
+                            onPress={()=>{NavigationService.navigate(NAV_TYPES.RESULTPACKAGE)}}
+                            >
+                        <View style={styles.imageBox} >
+                            <Image
+                                style={styles.Logo}
+                                source={require('../Assets/images/noteW1.png')}
+                            />
+                        </View>
+                        <View style={styles.listTitleBox} >
+                            <Text style={styles.text}>ប្រវត្តិបញ្ញើសរុប</Text>
+                        </View>
+                </TouchableOpacity>
+                </View>
+                <View style={styles.listContainer}>
+                    <TouchableOpacity style={styles.list}
+                            onPress={()=>{NavigationService.navigate(NAV_TYPES.RESULTPACKAGE)}}
+                            >
+                        <View style={styles.imageBox} >
+                            <Image
+                                style={styles.Logo}
+                                source={require('../Assets/images/verify1.png')}
+                            />
+                        </View>
+                        <View style={styles.listTitleBox} >
+                        <Text style={styles.text}>ប្រវត្តិបញ្ញើជោគជ័យ</Text>
+                        </View>
+                    </TouchableOpacity>
+                </View>
+                <View style={styles.listContainerLast}>
+
+                <TouchableOpacity style={styles.list}
+                            onPress={()=>{NavigationService.navigate(NAV_TYPES.RESULTPACKAGE)}}
+                            >
+                        <View style={styles.imageBox} >
+                            <Image
+                                style={styles.Logo}
+                                source={require('../Assets/images/info.png')}
+                            />
+                        </View>
+                        <View style={styles.listTitleBox} >
+                            <Text style={styles.text}>ប្រវត្តិបញ្ញើបរាជ័យ</Text>
+                        </View> 
+                </TouchableOpacity>
+                    
+                </View>
             {/* LIST  */}
-                <View style={styles.inner1}>
+                {/* <View style={styles.inner1}>
                     <View style={styles.benner1}>
                         <Image
                             style={styles.Logo}
@@ -78,7 +127,7 @@ export default class Screen_02 extends Component{
                         </View>     
                     </TouchableOpacity>
                             
-                </View>
+                </View> */}
                 </View>
             </>
         )
@@ -96,60 +145,107 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         
     },
-    btn: {
-        flex: 1,
-        flexDirection: 'row',
-        backgroundColor: 'green',
-        marginRight: 10,
-    },
-    benner: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    inner1:{
+    listContainer:{
         flex: 0.1,
-        flexDirection: 'row'
+        flexDirection:'row',
+        backgroundColor: '#d4e3fa',
+        padding: 10,
+        paddingBottom: 0,
     },
-   
-    benner1: {
-        flex: 0.30,
-        backgroundColor: 'white',
-        justifyContent: 'center',
+    listContainerLast:{
+        flex: 0.1,
+        flexDirection:'row',
+        backgroundColor: '#d4e3fa',
+        padding: 10,
     },
-    benner2: {
+    list:{
         flex: 1,
-        borderColor: 'skyblue',
-        borderBottomWidth: 2,
-        borderTopWidth: 2,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: 'white',
+        flexDirection:'row',
+        backgroundColor:'white',
+        borderRadius: 5,
     },
-    benner3: {
-        flex: 1,
-        borderColor: 'skyblue',
-        borderBottomWidth: 2,
-        justifyContent: 'center',
+    imageBox:{
+        flex:0.2,
+        flexDirection:'row',
+        // backgroundColor: 'red',
+        justifyContent:'center',
         alignItems: 'center',
-        backgroundColor: 'white',
+    },
+    listTitleBox:{
+        flex:0.8,
+        flexDirection:'row',
+        // backgroundColor: 'yellow',
+        justifyContent:'center',
+        alignItems: 'center',
+    },
+    Logo:{
+        width: 40,
+        height: 40,
     },
     text:{
         fontSize: 20,
-        color: 'skyblue',
+        color: 'grey',
     },
+
+
+
+
+
+
+    // btn: {
+    //     flex: 1,
+    //     flexDirection: 'row',
+    //     backgroundColor: 'green',
+    //     marginRight: 10,
+    // },
+    // benner: {
+    //     flex: 1,
+    //     justifyContent: 'center',
+    //     alignItems: 'center',
+    // },
+    // inner1:{
+    //     flex: 0.1,
+    //     flexDirection: 'row'
+    // },
+   
+    // benner1: {
+    //     flex: 0.30,
+    //     backgroundColor: 'white',
+    //     justifyContent: 'center',
+    // },
+    // benner2: {
+    //     flex: 1,
+    //     borderColor: 'skyblue',
+    //     borderBottomWidth: 2,
+    //     borderTopWidth: 2,
+    //     justifyContent: 'center',
+    //     alignItems: 'center',
+    //     backgroundColor: 'white',
+    // },
+    // benner3: {
+    //     flex: 1,
+    //     borderColor: 'skyblue',
+    //     borderBottomWidth: 2,
+    //     justifyContent: 'center',
+    //     alignItems: 'center',
+    //     backgroundColor: 'white',
+    // },
+    // text:{
+    //     fontSize: 20,
+    //     color: 'skyblue',
+    // },
     centerLogo: {
         flex: 1,
         width: 150,
         height: 80,
        
     },
-    Logo: {
-        flex: 0.8,
-        width: 50,
-        height: 45,
-        marginLeft: 20,
-    },
+    // Logo: {
+    //     flex: 0.8,
+    //     width: 50,
+    //     height: 45,
+    //     marginLeft: 20,
+    // },
  
   });
   

@@ -1,0 +1,10 @@
+CREATE TABLE `tblPermissionAdmin` (
+  `pmaAutoID` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `pma_usaAutoID` INT(10) UNSIGNED NOT NULL,
+  `pma_madAutoID` INT(10) UNSIGNED NOT NULL,
+  `pmaView` TINYINT(1) NOT NULL DEFAULT '1',
+  `pmaInsert` TINYINT(1) NOT NULL DEFAULT '0',
+  `pmaDelete` TINYINT(1) NOT NULL DEFAULT '0',
+  `pmaUpdate` TINYINT(1) NOT NULL DEFAULT '0',
+   PRIMARY KEY (`pmaAutoID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;

@@ -15,6 +15,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 
 import NavigationService from '../Service/navigationService'
 import { NAV_TYPES } from '../Navigation/navTypes'
+import { color } from 'react-native-reanimated'
 export default class Home extends Component{
    
     constructor(prop){
@@ -29,13 +30,13 @@ export default class Home extends Component{
                 <View style={styles.container}>
                     <View style={styles.inner}>
                         <View style={styles.benner}>
-                            <FontAwesome style={styles.tinyLogo} name="bell" size={20} color={'#000080'}> </FontAwesome>
+                            {/* <FontAwesome style={styles.tinyLogo} name="bell" size={20} color={'#000080'}> </FontAwesome> */}
                         </View>
                         <View style={styles.benner}>
-                            <Image
+                            {/* <Image
                                 style={styles.centerLogo}
                                 source={require('../Assets/images/logoMST.png')}
-                            />
+                            /> */}
                         </View>
 
                         <TouchableOpacity
@@ -44,12 +45,10 @@ export default class Home extends Component{
                             <View style={styles.benner}>
                                 <FontAwesome style={styles.rightLogo} name="navicon" size={28} color={'#000080'}> </FontAwesome>
                             </View>  
-                        </TouchableOpacity>
-
-                                 
+                        </TouchableOpacity>       
                     </View>
-                    <View style={styles.ads}>
-                        <View style={styles.bennerAds}>
+                    <View style={styles.ads} backgroundColor={'red'}>
+                        <View style={styles.bennerAds} >
                             <Image
                                 style={styles.adsImage}
                                 source={require('../Assets/images/top-benner.jpg')}
@@ -61,8 +60,7 @@ export default class Home extends Component{
                         <View style={styles.deliverBox}>
                             <View style={styles.deliverImage} >
                                 <TouchableOpacity
-                                onPress={()=>{NavigationService.navigate(NAV_TYPES.MAP01)}}
-                                >
+                                onPress={()=>{NavigationService.navigate(NAV_TYPES.MAP01)}}>
                                 <Image
                                     style={styles.deliver}
                                     source={require('../Assets/images/motoW1.jpg')}
@@ -70,7 +68,10 @@ export default class Home extends Component{
                                 </TouchableOpacity>
                             </View>
                             <View style={styles.deliverTitle} >
-                                <Text style={styles.Title}>ម៉ូតូ</Text>
+                                
+                            </View>
+                            <View style={styles.deliverTitle1} >
+                                <Text style={{color:'white'}}>សម្រាប់ដឹកទំនិញចំនួនតិច</Text>
                             </View>
                         </View>
                         <View style={styles.deliverBox} >
@@ -86,6 +87,9 @@ export default class Home extends Component{
                             </View>
                             <View style={styles.deliverTitle} >
                                 <Text style={styles.Title}>រម៉ក</Text>
+                            </View>
+                            <View style={styles.deliverTitle1} >
+                                <Text style={{color:'white'}}>សម្រាប់ដឹកទំនិញចំនួនមធ្យម</Text>
                             </View>
                         </View>
                     </View>
@@ -104,16 +108,26 @@ export default class Home extends Component{
                             <View style={styles.deliverTitle} >
                                 <Text style={styles.Title}>ឡាន</Text>
                             </View>
+                            <View style={styles.deliverTitle1} >
+                                <Text style={{color:'white'}}>សម្រាប់ដឹកទំនិញចំនួនច្រើន</Text>
+                            </View>
                         </View>
                         <View style={styles.deliverBox} >
                             <View style={styles.deliverImage}>
                             <TouchableOpacity
-                                onPress={()=>{NavigationService.navigate(NAV_TYPES.FLOW)}}>
-                                <FontAwesome5 style={styles.icon} name="search" size={35} color={'#808080'}> </FontAwesome5>
-                            </TouchableOpacity>
+                                onPress={()=>{NavigationService.navigate(NAV_TYPES.MAP01)}}
+                                >
+                                <Image
+                                    style={styles.deliver}
+                                    source={require('../Assets/images/motoW01.jpg')}
+                                />
+                                </TouchableOpacity>
                             </View>
                             <View style={styles.deliverTitle} >
                                 <Text style={styles.Title}>ឆែកឥវ៉ាន់</Text>
+                            </View>
+                            <View style={styles.deliverTitle1} >
+                                <Text style={{color:'white'}}>ឆៃកដំណើការដឹកជញ្ជូន</Text>
                             </View>
                         </View>                        
                     </View>
@@ -139,7 +153,7 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     inner:{
-        flex: 0.15,
+        flex: 0.08,
         flexDirection: 'row'
     },
     benner: {
@@ -164,12 +178,11 @@ const styles = StyleSheet.create({
         paddingLeft: 12,
     },
     ads:{
-        flex: 0.25,
+        flex: 0.21,
         flexDirection: 'row',
     },
     bennerAds: {
         flex: 1,
-        margin:10,
         justifyContent:'center',
         alignItems:'center',
     },
@@ -189,39 +202,62 @@ const styles = StyleSheet.create({
     },
    Title:{
         fontSize: 23,
+        color:'white',
+    },
+    TitleBox:{
+        flex: 0.5,
+        flexDirection: 'row',
+        justifyContent:'center',
+        alignItems:'center',
+        backgroundColor:'yellow'
+    },
+    smallTitle:{
+        fontSize: 16,
         color:'black',
     },
     order:{
-        flex: 0.2,
+        flex: 0.25,
+        // height: 200,
         flexDirection: 'row',
         backgroundColor: 'white',
         
     },
     deliver:{
-        width: 100,
-        height: 85,
+        width: 150,
+        height: 150,
     },
 
     check:{
-        flex: 0.2,
+        flex: 0.25,
+        // height: 200,
         flexDirection: 'row',
         backgroundColor: 'white',    
     },
     deliverBox:{
         flex: 0.5,
         flexDirection: 'column',
+        backgroundColor: '#000080',
+        margin: 1,
     },
     deliverImage:{
         flex: 0.65,
         flexDirection: 'row',
         justifyContent:'center',
         alignItems:'center',
+        backgroundColor:'red'
     },
     deliverTitle:{
-        flex: 0.35,
+        flex: 0.18,
         flexDirection: 'row',
         justifyContent:'center',
 
+    },
+    deliverTitle1:{
+        flex: 0.17,
+        flexDirection: 'row',
+        justifyContent:'center',
+        // backgroundColor:'green'
+        
     },
     checkBox: {
         flex: 1,

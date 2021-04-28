@@ -11,6 +11,7 @@ import {
     TextInput,
     SafeAreaView,
     KeyboardAvoidingView,
+    ScrollView,
 } from 'react-native'
 
 
@@ -29,57 +30,8 @@ export default class Login extends Component{
     render(){
         return(
             <>
-                
-                {/* <View style={styles.innerAction}>
-                    <View style={styles.bennerOrange}>
-                        <Image
-                            style={styles.tinyLogo}
-                            source={require('../Assets/images/ships-icons-set_1284-11537.jpeg')}
-                        />
-                    </View>
-                    <View style={styles.bennerBlue}>
-                        <Text style={styles.text}>ABC</Text>
-                    </View>
-                </View>
-                <View style={styles.innerAction}>
-                    <View style={styles.bennerOrange}>
-                        <Image
-                            style={styles.tinyLogo}
-                            source={require('../Assets/images/ships-icons-set_1284-11537.jpeg')}
-                        />
-                    </View>
-                    <View style={styles.bennerBlue}>
-                        <Text style={styles.text}>ABC</Text>
-                    </View>
-                </View>
-                <View style={styles.innerAction}>
-                    <View style={styles.bennerOrange}>
-                        <Image
-                            style={styles.tinyLogo}
-                            source={require('../Assets/images/ships-icons-set_1284-11537.jpeg')}
-                        />
-                    </View>
-                    <View style={styles.bennerBlue}>
-                        <Text style={styles.text}>ABC</Text>
-                    </View>
-                </View>
-                <View style={styles.innerAction}>
-                    <View style={styles.bennerOrange}>
-                        <Image
-                            style={styles.tinyLogo}
-                            source={require('../Assets/images/ships-icons-set_1284-11537.jpeg')}
-                        />
-                    </View>
-                    <View style={styles.bennerBlue}>
-                        <Text style={styles.text}>ABC</Text>
-                    </View>
-                </View> */}
                 <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : 'null'} style={styles.container}>
-                    <Fragment>
-                        <SafeAreaView style={{ flex:0,zIndex:1 }} >
-                            
-                        </SafeAreaView>
-                        <SafeAreaView style={styles.background_mode}>
+                    <ScrollView style={{flex:1}}>
                             <View style={styles.inner}>
                                 <View style={styles.benner}>
                                     <Image
@@ -101,19 +53,22 @@ export default class Login extends Component{
                             <TextInput style={styles.inputBox}
                                 placeholder="Password"
                                 placeholderTextColor="grey"
-                                returnKeyType='numberic'
+                                returnKeyType='go'
                                 secureTextEntry
                                 autoCorrect={false}
                             />
-                            <View style={styles.btnSignIn}>
+                            <TouchableOpacity style={styles.btnSignIn}
+                                onPress={() => NavigationService.navigate(NAV_TYPES.MAIN_HOME01)} >
                                 <Text style={styles.signInTitle}> សូមចូលគណនី</Text>
-                            </View>
+                            </TouchableOpacity>
+                            {/* <View style={styles.btnSignIn}>
+                                <Text style={styles.signInTitle}> សូមចូលគណនី</Text>
+                            </View> */}
                             <TouchableOpacity style={styles.register}
                                 onPress={() => NavigationService.navigate(NAV_TYPES.REGISTER)} >
                                 <Text style={styles.registerLink}>ចុះឈ្មោះគណនី</Text>
                             </TouchableOpacity>
-                        </SafeAreaView>
-                    </Fragment>
+                    </ScrollView>   
                 </KeyboardAvoidingView>
                 
             </>
@@ -122,43 +77,16 @@ export default class Login extends Component{
 }
 
 const styles = StyleSheet.create({
-    // innerAction:{
-    //     marginTop:10,
-    //     height:70,
-    //     flexDirection:'row',
-    //     // borderWidth: 5,
-    //     // borderColor:'gray'
-    // },
-    // bennerOrange:{
-    //     flex:.2,
-    // },
-    // bennerBlue:{
-    //     flex:0.87,
-    //     borderTopWidth:1,
-    //     borderBottomWidth:1,
-    //     justifyContent:'center'
-    // },
-    // tinyLogo: {
-    //     width: 70,
-    //     height: 70,
-
-    // },
-    // text:{
-    //     fontSize:24
-    // },
-
-
-
     container:{
         flex: 1,
         backgroundColor: 'white',
     },
     inner:{
-        // flex: 0.2,
+        flex: 0.2,
         flexDirection: 'row',
-        // fontSize: 16,
-        // padding: 10,
-        height: 110,
+        fontSize: 16,
+        padding: 10,
+        // height: 110,
         justifyContent: 'center',
         backgroundColor: 'white'
     },
@@ -174,7 +102,7 @@ const styles = StyleSheet.create({
         height: 100,
     },
     SignInHeader:{
-        // flex: 0.1,
+        flex: 0.1,
         fontSize: 16,
         height: 40,
         flexDirection: 'row',
@@ -186,12 +114,12 @@ const styles = StyleSheet.create({
         color: '#1E90FF',
     },
     inputBox:{
-        // flex: 0.05,
-        // flexDirection: 'row',
-        // alignItems: 'center',
+        flex: 0.05,
+        flexDirection: 'row',
+        alignItems: 'center',
         marginLeft:'10%',
         marginRight:'10%',
-        // margin: 10,
+        margin: 10,
         borderRadius: 50,
         borderColor: '#000080',
         borderWidth: 2,
@@ -209,7 +137,6 @@ const styles = StyleSheet.create({
     },
     btnSignIn:{
         fontSize: 16,
-        // padding: 10,
         height: 40,
         alignItems: 'center',
         justifyContent: 'center',
@@ -226,38 +153,16 @@ const styles = StyleSheet.create({
         color: 'white',
     },
     register:{
-        // flex: 0.1,
+        flex: 0.15,
         fontSize: 16,
-        // padding: 10,
         height: 40,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
+        backgroundColor:'white'
     },
     registerLink:{
-        fontSize: 20,
+        fontSize: 18,
         color: '#1E90FF',
-    },
-
-    background_mode:{
-        flex:1,
-        flexDirection:'column',
-
-    },
-    backgroud_top:{
-        height:60,
-        flexDirection:"column",
-     
-        borderBottomRightRadius:10,
-        borderBottomLeftRadius:10,
-        paddingBottom:0,
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 6,
-        },
-        shadowOpacity: 0.37,
-        shadowRadius: 7.49,
-        elevation: 12,
     },
 })

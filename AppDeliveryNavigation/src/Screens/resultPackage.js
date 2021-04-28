@@ -1,8 +1,17 @@
 import React,{Component} from 'react'
-import {Text,StyleSheet,Image,View,} from 'react-native'
+import {Text,StyleSheet,Image,View,TouchableOpacity} from 'react-native'
 
+
+import NavigationService from '../Service/navigationService'
+import { NAV_TYPES } from '../Navigation/navTypes'
+import { color } from 'react-native-reanimated'
 export default class ResultPackage extends Component{
-   
+    constructor(prop){
+        super(prop)
+        this.state={
+           
+        } 
+    }
     render(){
         return(
             <>
@@ -14,7 +23,9 @@ export default class ResultPackage extends Component{
                     </View>
                 </View>
 {/* dollar report of package */}
-                <View style={styles.inner1}>
+                <TouchableOpacity style={styles.inner1}
+                        onPress={()=>{NavigationService.navigate(NAV_TYPES.SPECAILINFODELIVERY)}}
+                        >
                     <View style={styles.bennerfirst}>
                         <Image
                             style={styles.data}
@@ -22,16 +33,18 @@ export default class ResultPackage extends Component{
                         />
                     </View>
                     <View style={styles.benner2}>
-                        <Text style={styles.text1}>បបញ្ជី នូវ​ថ្ងៃ 02, មេសា,​ 2021</Text>
+                        <Text style={styles.text1}>ទួលគោក - ទួលសង្កែ</Text>
                     </View>  
                     <View style={styles.benner2Price}>
-                        <Text style={styles.textPrice}>20$</Text>
+                        <Text style={styles.textPrice}>10$</Text>
                     </View>  
                     <View style={styles.benner2Price}>
-                        <Text style={styles.textPrice}>80000៛</Text>
+                        <Text style={styles.textPrice}>6000៛</Text>
                     </View>       
-                </View>
-                <View style={styles.inner1}>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.inner1}
+                            onPress={()=>{NavigationService.navigate(NAV_TYPES.SPECAILINFODELIVERY)}}
+                            >
                     <View style={styles.image}>
                         <Image
                             style={styles.data}
@@ -39,16 +52,18 @@ export default class ResultPackage extends Component{
                         />
                     </View>
                     <View style={styles.benner3}>
-                        <Text style={styles.text1}>បបញ្ជី នូវ​ថ្ងៃ 02, មេសា,​ 2021</Text>
+                        <Text style={styles.text1}>ទួលគោក - ឈូកមាស</Text>
                     </View>
                     <View style={styles.bennerPrice}>
-                        <Text style={styles.textPrice}>20$</Text>
+                        <Text style={styles.textPrice}>10$</Text>
                     </View>  
                     <View style={styles.bennerPrice}>
-                        <Text style={styles.textPrice}>80000៛</Text>
+                        <Text style={styles.textPrice}>6000៛</Text>
                     </View>           
-                </View>
-                <View style={styles.inner1}>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.inner1}
+                            onPress={()=>{NavigationService.navigate(NAV_TYPES.SPECAILINFODELIVERY)}}
+                            >
                     <View style={styles.image}>
                         <Image
                             style={styles.data}
@@ -56,16 +71,18 @@ export default class ResultPackage extends Component{
                         />
                     </View>
                     <View style={styles.benner3}>
-                        <Text style={styles.text1}>បបញ្ជី នូវ​ថ្ងៃ 02, មេសា,​ 2021</Text>
+                        <Text style={styles.text1}>ទួលគោក - ផ្សារដីហុយ</Text>
                     </View>
                     <View style={styles.bennerPrice}>
-                        <Text style={styles.textPrice}>20$</Text>
+                        <Text style={styles.textPrice}>10$</Text>
                     </View>  
                     <View style={styles.bennerPrice}>
-                        <Text style={styles.textPrice}>80000៛</Text>
+                        <Text style={styles.textPrice}>6000៛</Text>
                     </View>           
-                </View>
-                <View style={styles.inner1}>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.inner1}
+                            onPress={()=>{NavigationService.navigate(NAV_TYPES.SPECAILINFODELIVERY)}}
+                            >
                     <View style={styles.image}>
                         <Image
                             style={styles.data}
@@ -73,16 +90,18 @@ export default class ResultPackage extends Component{
                         />
                     </View>
                     <View style={styles.benner3}>
-                        <Text style={styles.text1}>បបញ្ជី នូវ​ថ្ងៃ 02, មេសា,​ 2021</Text>
+                        <Text style={styles.text1}>ទួលគោក - ព្រៃកព្នៅ</Text>
                     </View>
                     <View style={styles.bennerPrice}>
-                        <Text style={styles.textPrice}>20$</Text>
+                        <Text style={styles.textPrice}>10$</Text>
                     </View>  
                     <View style={styles.bennerPrice}>
-                        <Text style={styles.textPrice}>80000៛</Text>
+                        <Text style={styles.textPrice}>6000៛</Text>
                     </View>           
-                </View>
-                <View style={styles.inner1}>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.inner1}
+                            onPress={()=>{NavigationService.navigate(NAV_TYPES.SPECAILINFODELIVERY)}}
+                            >
                     <View style={styles.image}>
                         <Image
                             style={styles.data}
@@ -90,16 +109,18 @@ export default class ResultPackage extends Component{
                         />
                     </View>
                     <View style={styles.benner3}>
-                        <Text style={styles.text1}>បបញ្ជី នូវ​ថ្ងៃ 02, មេសា,​ 2021</Text>
+                        <Text style={styles.text1}>ទួលគោក - កប់ស្រូវ</Text>
                     </View>
                     <View style={styles.bennerPrice}>
-                        <Text style={styles.textPrice}>20$</Text>
+                        <Text style={styles.textPrice}>10$</Text>
                     </View>  
                     <View style={styles.bennerPrice}>
-                        <Text style={styles.textPrice}>80000៛</Text>
+                        <Text style={styles.textPrice}>6000៛</Text>
                     </View>           
-                </View>
-                <View style={styles.inner1}>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.inner1}
+                            onPress={()=>{NavigationService.navigate(NAV_TYPES.SPECAILINFODELIVERY)}}
+                            >
                     <View style={styles.image}>
                         <Image
                             style={styles.data}
@@ -107,30 +128,49 @@ export default class ResultPackage extends Component{
                         />
                     </View>
                     <View style={styles.benner3}>
-                        <Text style={styles.text1}>បបញ្ជី នូវ​ថ្ងៃ 02, មេសា,​ 2021</Text>
+                        <Text style={styles.text1}>ទួលគោក - ច្បារអំពៅ</Text>
                     </View>
                     <View style={styles.bennerPrice}>
-                        <Text style={styles.textPrice}>20$</Text>
+                        <Text style={styles.textPrice}>10$</Text>
                     </View>  
                     <View style={styles.bennerPrice}>
-                        <Text style={styles.textPrice}>80000៛</Text>
+                        <Text style={styles.textPrice}>6000៛</Text>
                     </View>           
-                </View>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.inner1}
+                            onPress={()=>{NavigationService.navigate(NAV_TYPES.SPECAILINFODELIVERY)}}
+                            >
+                        <View style={styles.bennerfirst}>
+                            <Image
+                                style={styles.data}
+                                source={require('../Assets/images/report.png')}
+                            />
+                        </View>
+                        <View style={styles.benner2}>
+                            <Text style={styles.text1}>ទួលគោក - តាខ្មៅ</Text>
+                        </View>  
+                        <View style={styles.benner2Price}>
+                            <Text style={styles.textPrice}>10$</Text>
+                        </View>  
+                        <View style={styles.benner2Price}>
+                            <Text style={styles.textPrice}>6000៛</Text>
+                        </View>       
+                    </TouchableOpacity>
                 {/* result */}
                 <View style={styles.inner1}>
                     <View style={styles.image}>
                         
                     </View>
                     <View style={styles.bennerTotal}>
-                        <Text style={styles.totalPrice}>បញ្ជីសរុប</Text>
+                        <Text style={styles.totalPrice}>បរាជ័យ</Text>
                         <Text style={styles.price}>55$</Text>
                     </View>
                     <View style={styles.bennerTotalPrice}>
-                        <Text style={styles.text1}>សរុប</Text>
+                        <Text style={styles.totalPrice}>តម្លៃសរុប</Text>
                         <Text style={styles.price}>85$</Text>
                     </View>  
                     <View style={styles.bennerTotalPrice}>
-                        <Text style={styles.text1}>សរុប</Text>
+                        <Text style={styles.totalPrice}>តម្លៃសេវា</Text>
                         <Text style={styles.price}>32000៛</Text>
                     </View>           
                 </View>
@@ -148,7 +188,7 @@ const styles = StyleSheet.create({
         flex: 0.15,
         flexDirection: 'row',
         justifyContent: 'center',
-        backgroundColor: 'white'
+        backgroundColor: 'white',
     },
     benner: {
         flex: 1,
@@ -168,53 +208,66 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         marginLeft: 10,
         marginRight: 10,
+        borderColor: '#dedbd3',
+        borderTopWidth: 1,
     },
     bennerfirst: {
-        flex: 0.30,
+        flex: 0.20,
         backgroundColor: 'white',
         justifyContent: 'center',
         alignItems: 'center',
+    },
+    image1: {
+        flex: 0.20,
+        backgroundColor: 'white',
+        justifyContent: 'center',
+        alignItems: 'center',
+        // borderColor: 'skyblue',
+        // borderBottomWidth: 2,
+        // borderTopWidth: 2,
     },
     image: {
-        flex: 0.30,
+        flex: 0.20,
         backgroundColor: 'white',
         justifyContent: 'center',
         alignItems: 'center',
+        // borderColor: 'skyblue',
+        // borderBottomWidth: 2,
     },
     benner2: {
-        flex: 0.40,
-        borderColor: 'skyblue',
-        borderBottomWidth: 2,
-        borderTopWidth: 2,
+        flex: 0.50,
+        // borderColor: 'skyblue',
+        // borderBottomWidth: 2,
+        // borderTopWidth: 2,
         justifyContent: 'center',
         backgroundColor: 'white',
     },
     benner2Price: {
         flex: 0.15,
-        borderColor: 'skyblue',
-        borderBottomWidth: 2,
-        borderTopWidth: 2,
+        // borderColor: 'skyblue',
+        // borderBottomWidth: 2,
+        // borderTopWidth: 2,
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: 'white',
     },
     benner3: {
-        flex: 0.40,
-        borderColor: 'skyblue',
-        borderBottomWidth: 2,
+        flex: 0.50,
+        // borderColor: 'skyblue',
+        // borderBottomWidth: 2,
         justifyContent: 'center',
         backgroundColor: 'white',
     },
     bennerTotal: {
-        flex: 0.40,
+        flex: 0.50,
         justifyContent: 'center',
         backgroundColor: 'white',
         marginLeft: 13,
     },
     bennerPrice: {
         flex: 0.15,
-        borderColor: 'skyblue',
-        borderBottomWidth: 2,
+        // borderColor: 'skyblue',
+        // borderBottomWidth: 2,
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: 'white',
@@ -230,11 +283,11 @@ const styles = StyleSheet.create({
         color: 'red',
     },
     text1:{
-        fontSize: 13,
+        fontSize: 18,
         color: 'skyblue',
     },
     totalPrice:{
-        fontSize: 13,
+        fontSize: 15,
         color: 'skyblue',
     },
     price:{
@@ -247,7 +300,6 @@ const styles = StyleSheet.create({
         height: 100,
     },
     data: {
-        flex: 1,
         width: 50,
         height: 50,
     },
