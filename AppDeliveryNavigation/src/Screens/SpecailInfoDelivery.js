@@ -45,7 +45,7 @@ export default class Home extends Component{
                             <Text style={styles.titleDetail}>កាលបរិច្ឆេទ</Text>
                         </View>
                         <View style={styles.col2}>
-                            <Text style={styles.titleDetail}>៖ ៥ មេសា ២០២១</Text>
+                            <Text style={styles.titleDetail}>៖ ០៥ មេសា ២០២១</Text>
                         </View>
                     </View>
                     <View style={styles.row} >
@@ -156,7 +156,7 @@ const styles = StyleSheet.create({
      color: 'black',
     },
     row:{
-        flex: 0.06,
+        flex: 0.05,
         flexDirection: 'row',
         marginLeft: 30,
         marginRight: 30,

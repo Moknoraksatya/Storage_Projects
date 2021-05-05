@@ -66,7 +66,7 @@ export default class Login extends Component{
                             
                             <TouchableOpacity style={styles.btnSignIn}
                                 onPress={() => NavigationService.navigate(NAV_TYPES.MAIN_HOME01)} >
-                                <Text style={styles.signInTitle}> សូមចូលគណនី</Text>
+                                <Text style={styles.signInTitle}>ចូលគណនី</Text>
                             </TouchableOpacity>
                     </ScrollView>   
                 </KeyboardAvoidingView>

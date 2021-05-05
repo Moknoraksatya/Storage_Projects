@@ -46,21 +46,6 @@ export default class Login extends Component{
                             <View style={styles.SignInHeader}>
                                 <Text style={styles.signIn}>ចុះឈ្មោះគណនី</Text>
                             </View>
-                            {/* <TextInput style={styles.inputBox}
-                                placeholder="Email"
-                                placeholderTextColor="grey"
-                                returnKeyType='email-address'
-                                // secureTextEntry
-                                autoCorrect={false}
-                            />
-                            <TextInput style={styles.inputBox}
-                                placeholder="Password"
-                                placeholderTextColor="grey"
-                                returnKeyType='numberic'
-                                secureTextEntry
-                                autoCorrect={false}
-                            /> */}
-                           
                           <TextInput
                               style={styles.inputBox}
                               placeholder="ឈ្មោះហាង"

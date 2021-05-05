@@ -34,9 +34,8 @@ export default class Message extends Component{
                     </View>
                     <View style={styles.MessageBox}>
                        <Text style={styles.MeassageTitle}>
-                            ការហៅរបស់លោកអ្នក
-                            ទទួលបានជោគជ័យហើយ។
-                            សូមរងចាំការទាក់ទងពីខាង
+                            ការហៅរបស់លោកអ្នកទទួល{'\n'}បានជោគជ័យហើយ។{'\n'}
+                            សូមរងចាំការទាក់ទងពីខាង{'\n'}
                             បុគ្គលិកយើងខ្ញុំ សូមអរគុណ!
                        </Text>
                     </View>

@@ -34,7 +34,7 @@ export default class ResultPackage extends Component{
                     </View>
                     
                     <View style={styles.TotalPackage}>
-                        <TextInput style={styles.packageTitle} placeholder={'សូមបញ្ចូលចំនួនកញ្ចប់សរុប'}></TextInput>
+                        <TextInput style={styles.packageTitle} placeholder={'សូមវាយបញ្ចូលលេខកូដឥវ៉ាន់'}></TextInput>
                     </View> 
                     <View style={styles.containSceneBox}>
                         <View style={styles.scaneBox}>

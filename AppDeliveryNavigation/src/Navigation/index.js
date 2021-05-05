@@ -11,11 +11,11 @@ import LoadingContainer from '../Containers/LoadingContainer'
 import PhoneCallContainer from '../Containers/PhoneCallContainer'
 import MapContainer from '../Containers/MapContainer'
 import MapContainer_01 from '../Containers/MapContainer_01'
-import ScreenContainer_02 from '../Containers/ScreenContainer_02'
+import HistoryContainer from '../Containers/HistoryContainer'
 import ReportContainer from '../Containers/ReportContainer'
 import ResultContainer from '../Containers/ResultContainer'
 import FlowContainer from '../Containers/FlowContainer'
-import InfoContainer from '../Containers/InfoContainer'
+// import InfoContainer from '../Containers/InfoContainer'
 
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import Entypo from 'react-native-vector-icons/Entypo'
@@ -24,6 +24,8 @@ import SpecailInfoContainer from '../Containers/SpecailInfoContainer'
 import RegisterContainer from '../Containers/RegisterContainer'
 import VerifyCodeContainer from '../Containers/VerifyCodeContainer'
 import SpecailInfoInReportContainer from '../Containers/SpecailInfoInReportContainer'
+import DeliveryStatusContainer from '../Containers/DeliveryStatusContainer'
+
 
 
 const IntroNavigator = createStackNavigator(
@@ -76,8 +78,8 @@ const Home01Navigation = createStackNavigator(
                 headerShown:false
             }
         },
-        [NAV_TYPES.SCREEN_02]:{
-            screen:ScreenContainer_02,
+        [NAV_TYPES.HISTORY]:{
+            screen:HistoryContainer,
             navigationOptions:{
                 headerShown:false
             }
@@ -102,12 +104,12 @@ const Home01Navigation = createStackNavigator(
             }
         },
 
-        [NAV_TYPES.INFO]:{
-            screen:InfoContainer,
-            navigationOptions:{
-                headerShown:false
-            }
-        },
+        // [NAV_TYPES.INFO]:{
+        //     screen:InfoContainer,
+        //     navigationOptions:{
+        //         headerShown:false
+        //     }
+        // },
         [NAV_TYPES.MESSAGE]:{
             screen:MessageContainer,
             navigationOptions:{
@@ -138,6 +140,13 @@ const Home01Navigation = createStackNavigator(
                 headerShown:false
             }
         },
+        [NAV_TYPES.DELIVERYSTATUS]:{
+            screen:DeliveryStatusContainer,
+            navigationOptions:{
+                headerShown:false
+            }
+        },
+        
     }
 )
 
@@ -164,7 +173,7 @@ const TabNavigation = createBottomTabNavigator(
             screen:Home01Navigation,
             navigationOptions:{
                 tabBarLabel:({focused})=>(
-                    <Ionicons style={{textAlign:'center',}}  name="home" size={25} color={'#000080'}> </Ionicons>
+                    <Ionicons style={{textAlign:'center',}}  name="home" size={25} color={'#fff'}> </Ionicons>
                     
                 ),
             }
@@ -173,7 +182,7 @@ const TabNavigation = createBottomTabNavigator(
             screen:HomeNavigation,
             navigationOptions:{
                 tabBarLabel:({focused})=>(
-                    <Entypo style={{textAlign:'center',}}  name="old-phone" size={25} color={'#000080'}> </Entypo>
+                    <Entypo style={{textAlign:'center',}}  name="old-phone" size={25} color={'#fff'}> </Entypo>
                 ),
             }
         },
@@ -181,7 +190,7 @@ const TabNavigation = createBottomTabNavigator(
             screen:PhoneCallNavigation,
             navigationOptions:{
                 tabBarLabel:({focused})=>(
-                    <Ionicons style={{textAlign:'center'}}  name="person" size={25} color={'#000080'}> </Ionicons>
+                    <Ionicons style={{textAlign:'center'}}  name="person" size={25} color={'#fff'} > </Ionicons>
                 ),
             }
         },
@@ -195,7 +204,8 @@ const TabNavigation = createBottomTabNavigator(
           labelStyle: {
             fontSize: 20,
           },
-          style:{height:Platform.OS==='ios'?60:63,paddingBottom:Platform.OS==='ios' ? 0 : 10},
+          style:{height:Platform.OS==='ios'?50:53,paddingBottom:Platform.OS==='ios' ? 0 : 14,backgroundColor:Platform.OS==='ios' ? '#02475e' : '#02475e',
+          borderTopWidth:Platform.OS==='ios' ? 2 : 2,borderTopColor:Platform.OS==='ios' ? '#fff' : '#fff'},
           activeColor:'blue',
           activeTabStyle:{backgroundColor:'blue'},
         
@@ -248,7 +258,7 @@ Home01Navigation.navigationOptions = ({ navigation }) => {
   let tabBarVisible;
   if (navigation.state.routes.length > 1) {
     navigation.state.routes.map(route => {
-      if (route.routeName === NAV_TYPES.MAIN_HOME01 || route.routeName === NAV_TYPES.FLOW) {
+      if (route.routeName === NAV_TYPES.FLOW) {
         tabBarVisible = true;
       } else {
         tabBarVisible = false;

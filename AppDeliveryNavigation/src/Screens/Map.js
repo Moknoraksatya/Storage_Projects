@@ -42,24 +42,19 @@ export default class Home extends Component{
                             longitudeDelta: 0.0421,
                             }}
                         />
-                        <View style={styles.btnBack}>
-                            <TouchableOpacity style={styles.back}
-                                onPress={() => NavigationService.goBack()} >
-                                    <View style={styles.tinyLogo}>
-                                        <MaterialIcons style={styles.icon} name="keyboard-arrow-left" size={30} color={'black'}> </MaterialIcons>
-                                    </View>
-                            </TouchableOpacity>
+                        <View style={styles.Location}>
+                            <Text style={styles.myLocation}>My location</Text>
                         </View>
                     </View>
                     <View style={styles.inputProTitle}>
-                        <Text style={styles.proTitle}>សូមបញ្ចូលចំនួនអីវ៉ាន</Text>
+                        <Text style={styles.proTitle}>សូមបញ្ចូលចំនួនឥវ៉ាន</Text>
                     </View>
                     <View style={styles.TotalPackage}>
                         <TextInput style={styles.inputBox} placeholder={'សូមបញ្ចូលចំនួនកញ្ចប់សរុប'}></TextInput>
                     </View>
                     <TouchableOpacity style={styles.footer}
                         onPress={()=>{NavigationService.navigate(NAV_TYPES.MESSAGE)}}>
-                        <Text style={styles.call} >រួចរាល់</Text>
+                        <Text style={styles.ready} >រួចរាល់</Text>
                     </TouchableOpacity>
                 </ScrollView>
                 </KeyboardAvoidingView>
@@ -76,10 +71,8 @@ const styles = StyleSheet.create({
     map:{
         flex:1,
         flexDirection: 'row',
-        height: 480,
-    },
-    icon:{
-        marginLeft: 4,
+        height: 450,
+        position: 'relative'
     },
     inner:{
         flex: 0.1,
@@ -90,11 +83,9 @@ const styles = StyleSheet.create({
         flex: 0.30,
     },
     benner1: {
-        
         flex: 0.1,
         justifyContent: 'center',
         alignItems: 'center',
-        
     },
     circle:{
         height: 30,
@@ -104,40 +95,46 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent : 'center',
     },
-    tinyLogo:{
-        width: 25,
-        height: 25,
-        marginTop: 15,
-        marginLeft: 10,
+    myLocation:{
+        width: 100,
+        height: 30,
+        justifyContent:'center',
+        alignItems:'center',
+        fontSize:17,
+        color:'gold',
+        fontWeight:'bold',
     },
     logo: {
         width: 20,
         height: 20,
     },
-   
     mapBox:{
-        flex: 0.7,
+        flex: 0.65,
         flexDirection: 'row',
         // borderWidth:2,
         // borderColor: 'red',
         position: 'relative',
     },
-    btnBack:{
-        flex: 0.15,
+    Location:{
+        flex: 0.1,
         flexDirection: 'row',
         position: 'absolute',
+        marginLeft:"30%",
+        justifyContent:'center',
+        alignItems:'center',
+        top:30,
     },
     inputProTitle:{
         flex: 0.1,
-        height: 50,
+        height: 60,
         flexDirection: 'row',
         justifyContent:'center',
         alignItems:'center',
         backgroundColor:'white',
     },
     proTitle:{
-        fontSize: 25,
-        color:'black',
+        fontSize: 28,
+        color:'red',
     },
     PackageBox: {
         flex: 0.40,
@@ -161,6 +158,7 @@ const styles = StyleSheet.create({
     inputBox:{
         fontSize: 20,
         color: 'grey',
+        height:65,
     },
     TotalPackage:{
         flex: 0.1,
@@ -168,7 +166,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#F8F8FF',
         borderColor: '#C0C0C0',
         borderWidth: 3,
-        borderRadius: 10,
+        // borderRadius: 10,
         margin: 20,
         marginTop: 5,
         alignItems: 'center',
@@ -177,13 +175,13 @@ const styles = StyleSheet.create({
 
     footer:{
         flex: 0.1,
-        height: 50,
+        height: 55,
         flexDirection: 'row',
         backgroundColor: '#000080',
         justifyContent: 'center',
         alignItems: 'center',
     },
-    call:{
+    ready:{
         fontSize: 20,
         color: 'white',
     },

@@ -30,112 +30,109 @@ export default class Home extends Component{
                 <View style={styles.container}>
                     <View style={styles.inner}>
                         <View style={styles.benner}>
-                            {/* <FontAwesome style={styles.tinyLogo} name="bell" size={20} color={'#000080'}> </FontAwesome> */}
+                            <FontAwesome style={styles.tinyLogo} name="bell" size={30} color={'#ffffff'}> </FontAwesome>
                         </View>
-                        <View style={styles.benner}>
-                            {/* <Image
+                        <View style={styles.bennerLogo} >
+                            <Image
                                 style={styles.centerLogo}
                                 source={require('../Assets/images/logoMST.png')}
-                            /> */}
+                            />
                         </View>
 
                         <TouchableOpacity
-                            onPress={()=>{NavigationService.navigate(NAV_TYPES.SCREEN_02)}}
+                            onPress={()=>{NavigationService.navigate(NAV_TYPES.HISTORY)}}
                             >
                             <View style={styles.benner}>
-                                <FontAwesome style={styles.rightLogo} name="navicon" size={28} color={'#000080'}> </FontAwesome>
+                                <FontAwesome style={styles.rightLogo} name="navicon" size={33} color={'#ffffff'}> </FontAwesome>
                             </View>  
                         </TouchableOpacity>       
                     </View>
-                    <View style={styles.ads} backgroundColor={'red'}>
+                    {/* <View style={styles.ads} backgroundColor={'red'}>
                         <View style={styles.bennerAds} >
                             <Image
                                 style={styles.adsImage}
                                 source={require('../Assets/images/top-benner.jpg')}
                             />
                         </View>
-                    </View>
+                    </View> */}
 
+                    <View style={styles.orderBox}>
                     <View style={styles.order}>
-                        <View style={styles.deliverBox}>
-                            <View style={styles.deliverImage} >
-                                <TouchableOpacity
+                        <TouchableOpacity style={styles.deliverBox}
                                 onPress={()=>{NavigationService.navigate(NAV_TYPES.MAP01)}}>
+                            <View style={styles.deliverImage} >
                                 <Image
                                     style={styles.deliver}
-                                    source={require('../Assets/images/motoW1.jpg')}
+                                    source={require('../Assets/images/motoW1.png')}
                                 />
-                                </TouchableOpacity>
                             </View>
                             <View style={styles.deliverTitle} >
-                                
+                            <Text style={styles.Title}>ហៅម៉ូតូ</Text>
                             </View>
                             <View style={styles.deliverTitle1} >
-                                <Text style={{color:'white'}}>សម្រាប់ដឹកទំនិញចំនួនតិច</Text>
+                                <Text style={{color:'white', fontSize:11}}>សម្រាប់ដឹកទំនិញចំនួនតិច</Text>
                             </View>
-                        </View>
-                        <View style={styles.deliverBox} >
-                            <View style={styles.deliverImage} >
-                                <TouchableOpacity
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.deliverBox}
                                 onPress={()=>{NavigationService.navigate(NAV_TYPES.MAP01)}}
                                 >
+                            <View style={styles.deliverImage} >
+                                
                                 <Image
                                     style={styles.deliver}
                                     source={require('../Assets/images/tuktukW1.png')}
                                 />
-                                </TouchableOpacity>
+                                
                             </View>
                             <View style={styles.deliverTitle} >
-                                <Text style={styles.Title}>រម៉ក</Text>
+                                <Text style={styles.Title}>ហៅរម៉ក</Text>
                             </View>
                             <View style={styles.deliverTitle1} >
-                                <Text style={{color:'white'}}>សម្រាប់ដឹកទំនិញចំនួនមធ្យម</Text>
+                                <Text style={{color:'white', fontSize:11}}>សម្រាប់ដឹកទំនិញចំនួនមធ្យម</Text>
                             </View>
-                        </View>
+                        </TouchableOpacity>
                     </View>
+                    
                     <View style={styles.check}>
-                        <View style={styles.deliverBox}>
+                    <TouchableOpacity style={styles.deliverBox}
+                        onPress={()=>{NavigationService.navigate(NAV_TYPES.MAP01)}}>
                             <View style={styles.deliverImage}>
-                            <TouchableOpacity
-                                onPress={()=>{NavigationService.navigate(NAV_TYPES.MAP01)}}
-                                >
                                 <Image
                                     style={styles.deliver}
                                     source={require('../Assets/images/CarW1.png')}
                                 />
-                                </TouchableOpacity>
                             </View>
                             <View style={styles.deliverTitle} >
-                                <Text style={styles.Title}>ឡាន</Text>
+                                <Text style={styles.Title}>ហៅឡាន</Text>
                             </View>
                             <View style={styles.deliverTitle1} >
-                                <Text style={{color:'white'}}>សម្រាប់ដឹកទំនិញចំនួនច្រើន</Text>
+                                <Text style={{color:'white', fontSize:11}}>សម្រាប់ដឹកទំនិញចំនួនច្រើន</Text>
                             </View>
-                        </View>
-                        <View style={styles.deliverBox} >
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.deliverBox}
+                            onPress={()=>{NavigationService.navigate(NAV_TYPES.FLOW)}}
+                            >
                             <View style={styles.deliverImage}>
-                            <TouchableOpacity
-                                onPress={()=>{NavigationService.navigate(NAV_TYPES.MAP01)}}
-                                >
                                 <Image
                                     style={styles.deliver}
-                                    source={require('../Assets/images/motoW01.jpg')}
+                                    source={require('../Assets/images/searchW001.png')}
                                 />
-                                </TouchableOpacity>
                             </View>
                             <View style={styles.deliverTitle} >
                                 <Text style={styles.Title}>ឆែកឥវ៉ាន់</Text>
                             </View>
                             <View style={styles.deliverTitle1} >
-                                <Text style={{color:'white'}}>ឆៃកដំណើការដឹកជញ្ជូន</Text>
+                                <Text style={{color:'white' , fontSize:11}}>ឆែកដំណើការដឹកជញ្ជូន</Text>
                             </View>
-                        </View>                        
+                        </TouchableOpacity>
+                    </View>
                     </View>
                     <View style={styles.ads}>
                         <View style={styles.bennerAds}>
+                        <Text style={{color:'white',marginTop:-15,fontSize:25}}>.....</Text>
                             <Image
                                 style={styles.adsImage}
-                                source={require('../Assets/images/bottom-benner.jpg')}
+                                source={require('../Assets/images/Benner-bottom.jpg')}
                             />
                         </View>
                     </View>
@@ -147,61 +144,75 @@ export default class Home extends Component{
 const styles = StyleSheet.create({
     container:{
         flex: 1,
-        backgroundColor: 'white',
+        backgroundColor: '#02475e',
     },
     btn:{
         flex: 1,
     },
     inner:{
-        flex: 0.08,
+        flex: 0.1,
         flexDirection: 'row'
     },
     benner: {
-        flex: 1,
-        backgroundColor: 'white',
+        flex: 0.2,
+        // backgroundColor: 'white',
+        // backgroundColor:'red'
+        justifyContent:'center',
+        alignItems:'center',
+    },
+    bennerLogo: {
+        flex: 0.8,
+        // backgroundColor: 'white',
+        justifyContent:'center',
+        alignItems:'center',
     },
     tinyLogo:{
-        width: 25,
-        height: 25,
-        marginTop: 14,
+        // width: 50,
+        // height: 50,
+        // marginTop: 14,
         marginLeft: 12,
     },
     centerLogo: {
-        width: 150,
-        height: 83,
+        width: 130,
+        height: 130,
+        marginTop:-10,
     },
     rightLogo: {
-        width: 50,
-        height: 50,
-        marginTop: 12,
-        marginLeft: 70,
-        paddingLeft: 12,
+        width: 45,
+        height: 40,
+        // padding: 5,
+        paddingLeft: 10,
+        // backgroundColor: 'grey',
+        marginTop: 38,
+        marginRight: 15,
     },
     ads:{
-        flex: 0.21,
+        flex: 0.38,
         flexDirection: 'row',
+        paddingBottom:10,
+        padding:15,
     },
     bennerAds: {
         flex: 1,
-        justifyContent:'center',
+        // justifyContent:'center',
         alignItems:'center',
+        margin: 0,
+        // backgroundColor:'red',
+        marginTop:-10,
     },
     adsImage:{
         width: '100%',
-        height:'100%',
+        height:'80%',
     },
+
     orderBox: {
-        flex: 1,
-        margin:10,
+        flex: 0.52,
+        margin:15,
         marginBottom: 0,
-        borderTopWidth: 2,
-        borderBottomWidth: 2,
-        borderColor:'skyblue',
-        justifyContent:'center',
-        alignItems:'center',
+        marginTop:0,
     },
    Title:{
-        fontSize: 23,
+        fontSize: 18,
         color:'white',
     },
     TitleBox:{
@@ -216,35 +227,34 @@ const styles = StyleSheet.create({
         color:'black',
     },
     order:{
-        flex: 0.25,
+        flex: 0.5,
         // height: 200,
         flexDirection: 'row',
-        backgroundColor: 'white',
         
     },
     deliver:{
-        width: 150,
-        height: 150,
+        width: 140,
+        height: 140,
     },
 
     check:{
-        flex: 0.25,
+        flex: 0.5,
         // height: 200,
-        flexDirection: 'row',
-        backgroundColor: 'white',    
+        flexDirection: 'row',    
     },
     deliverBox:{
-        flex: 0.5,
+        flex: 0.6,
         flexDirection: 'column',
-        backgroundColor: '#000080',
-        margin: 1,
+        backgroundColor: '#0061a8',
+        margin: 2,
+        borderRadius: 15,
     },
     deliverImage:{
         flex: 0.65,
         flexDirection: 'row',
         justifyContent:'center',
         alignItems:'center',
-        backgroundColor:'red'
+        // backgroundColor:'red'
     },
     deliverTitle:{
         flex: 0.18,

@@ -44,14 +44,11 @@ export default class Login extends Component{
                                 <Text style={styles.signIn}>ចូលគណនី</Text>
                             </View>
                             <TextInput style={styles.inputBox}
-                                placeholder="Email"
+                                placeholder="លេខទូរស័ព្ទ"
                                 placeholderTextColor="grey"
-                                returnKeyType='email-address'
-                                // secureTextEntry
-                                autoCorrect={false}
                             />
                             <TextInput style={styles.inputBox}
-                                placeholder="Password"
+                                placeholder="លេខសម្ងាត់"
                                 placeholderTextColor="grey"
                                 returnKeyType='go'
                                 secureTextEntry
@@ -59,11 +56,8 @@ export default class Login extends Component{
                             />
                             <TouchableOpacity style={styles.btnSignIn}
                                 onPress={() => NavigationService.navigate(NAV_TYPES.MAIN_HOME01)} >
-                                <Text style={styles.signInTitle}> សូមចូលគណនី</Text>
+                                <Text style={styles.signInTitle}>ចូលគណនី</Text>
                             </TouchableOpacity>
-                            {/* <View style={styles.btnSignIn}>
-                                <Text style={styles.signInTitle}> សូមចូលគណនី</Text>
-                            </View> */}
                             <TouchableOpacity style={styles.register}
                                 onPress={() => NavigationService.navigate(NAV_TYPES.REGISTER)} >
                                 <Text style={styles.registerLink}>ចុះឈ្មោះគណនី</Text>
@@ -111,7 +105,7 @@ const styles = StyleSheet.create({
     },
     signIn:{
         fontSize: 20,
-        color: '#1E90FF',
+        color: '#344fa1',
     },
     inputBox:{
         flex: 0.05,
@@ -119,16 +113,15 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginLeft:'10%',
         marginRight:'10%',
-        margin: 10,
         borderRadius: 50,
         borderColor: '#000080',
         borderWidth: 2,
-        fontSize: 16,
+        fontSize: 18,
         padding: 10,
-        height: 40,
+        paddingLeft: 15,
+        height: 45,
         margin: 12,
-        borderWidth: 1,
-        
+        borderWidth: 1,   
     },
     inputText:{
         fontSize: 20,
@@ -136,8 +129,8 @@ const styles = StyleSheet.create({
         paddingLeft: 20,
     },
     btnSignIn:{
-        fontSize: 16,
-        height: 40,
+        fontSize: 18,
+        height: 45,
         alignItems: 'center',
         justifyContent: 'center',
         marginLeft:'10%',
