@@ -33,9 +33,15 @@ export default class ResultPackage extends Component{
                         </View>
                     </View>
                     
-                    <View style={styles.TotalPackage}>
-                        <TextInput style={styles.packageTitle} placeholder={'សូមវាយបញ្ចូលលេខកូដឥវ៉ាន់'}></TextInput>
-                    </View> 
+                    {/* <View style={styles.TotalPackage}> */}
+                        <TextInput style={styles.inputBox} 
+                            placeholder={'សូមវាយបញ្ចូលលេខកូដឥវ៉ាន់'} 
+                            fontFamily={'KhmerOScontent'}
+                            keyboardType="text"
+                            >
+                            
+                        </TextInput>
+                    {/* </View>  */}
                     <View style={styles.containSceneBox}>
                         <View style={styles.scaneBox}>
                         <TouchableOpacity
@@ -44,17 +50,15 @@ export default class ResultPackage extends Component{
                                 style={styles.ScaneImage}
                                 source={require('../Assets/images/hand-phone.png')}
                             />
-                        {/* <FontAwesome style={styles.icon1} name="camera" size={30} color={'skyblue'}> </FontAwesome> */}
                         </TouchableOpacity>
                         </View>
                     </View>
                     <View style={styles.ScaneBoxTitle}>
                        <Text style={styles.ScaneTitle}>សូមចុចលើរូបខាងលើដើម្បីស្កេន</Text>
                     </View>
-                    <View style={styles.qrCode}>
+                    <View style={styles.qrCode} marginBottom={'55%'}>
                        <Text style={styles.qrCodeTitle}>QR Code</Text>
                     </View>
-
                 </View>
                 </ScrollView>
                 </KeyboardAvoidingView>
@@ -65,13 +69,14 @@ export default class ResultPackage extends Component{
 const styles = StyleSheet.create({
     container:{
         flex: 1,
-        backgroundColor: 'white',
+        backgroundColor: 'white', 
     },
     inner:{
         flex: 0.15,
         flexDirection: 'row',
         justifyContent: 'center',
-        backgroundColor: 'white'
+        backgroundColor: 'white',
+        marginTop:20,
     },
     benner: {
         flex: 1,
@@ -79,27 +84,44 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         margin: 10,
     },
-    text:   {
-     fontSize: 30,
-     color: 'black',
+    text:{
+        fontSize: 20,
+        color: '#005792',
+        fontFamily:'KhmerOScontent'
     },
-    packageTitle:{
-        fontSize: 23,
-        color:'grey',
-        height: 80,
-    },
-    TotalPackage:{
+    inputBox:{
         flex: 0.1,
         flexDirection: 'row',
-        backgroundColor: '#F8F8FF',
-        borderColor: '#000080',
-        borderWidth: 3,
+        // backgroundColor: '#F8F8FF',
+        // borderColor: 'grey',
+        // borderColor: 'red',
+        // borderWidth: 3,
         borderRadius: 10,
-        margin: 20,
+        margin: 50,
         marginTop: 2,
-        alignItems: 'center',
-        justifyContent : 'center',
+        textAlign:'center',
+        fontSize: 14,
+        color:'grey',
+        height: 50,
+        color:'black',
+        borderBottomColor: '#005792',
+        borderBottomWidth: 1,
+        fontFamily:'KhmerOScontent', 
+        
     },
+    // TotalPackage:{
+    //     flex: 0.1,
+    //     flexDirection: 'row',
+    //     backgroundColor: '#F8F8FF',
+    //     borderColor: 'grey',
+    //     // borderColor: 'red',
+    //     borderWidth: 3,
+    //     borderRadius: 10,
+    //     margin: 40,
+    //     marginTop: 2,
+    //     alignItems: 'center',
+    //     justifyContent : 'center',
+    // },
 
     containSceneBox:{
         flex: 0.3,
@@ -127,9 +149,10 @@ const styles = StyleSheet.create({
         marginTop: 30,
     },
     ScaneTitle:{
-        fontSize: 25,
-        color: 'black',
-        textAlign: 'center'
+        fontSize: 16,
+        color: '#005792',
+        textAlign: 'center',
+        fontFamily:'KhmerOScontent',
     },
     qrCode:{
         flex: 0.1,
@@ -137,9 +160,10 @@ const styles = StyleSheet.create({
         justifyContent:'center',
     },
     qrCodeTitle:{
-        fontSize: 20,
-        color: 'black',
-        textAlign: 'center'
+        fontSize: 16,
+        color: '#005792',
+        textAlign: 'center',
+        fontFamily:'KhmerOScontent'
     },
   });
   

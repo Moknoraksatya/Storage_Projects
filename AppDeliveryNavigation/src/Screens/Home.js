@@ -35,7 +35,7 @@ export default class Home extends Component{
                         <View style={styles.bennerLogo} >
                             <Image
                                 style={styles.centerLogo}
-                                source={require('../Assets/images/logoMST.png')}
+                                source={require('../Assets/images/logoMST01.png')}
                             />
                         </View>
 
@@ -59,7 +59,7 @@ export default class Home extends Component{
                     <View style={styles.orderBox}>
                     <View style={styles.order}>
                         <TouchableOpacity style={styles.deliverBox}
-                                onPress={()=>{NavigationService.navigate(NAV_TYPES.MAP01)}}>
+                                onPress={()=>{NavigationService.navigate(NAV_TYPES.MOTOMAP)}}>
                             <View style={styles.deliverImage} >
                                 <Image
                                     style={styles.deliver}
@@ -70,25 +70,23 @@ export default class Home extends Component{
                             <Text style={styles.Title}>ហៅម៉ូតូ</Text>
                             </View>
                             <View style={styles.deliverTitle1} >
-                                <Text style={{color:'white', fontSize:11}}>សម្រាប់ដឹកទំនិញចំនួនតិច</Text>
+                                <Text style={{color:'white', fontSize:10,fontFamily:'KhmerOScontent',}}>សម្រាប់ដឹកទំនិញចំនួនតិច</Text>
                             </View>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.deliverBox}
                                 onPress={()=>{NavigationService.navigate(NAV_TYPES.MAP01)}}
                                 >
                             <View style={styles.deliverImage} >
-                                
                                 <Image
                                     style={styles.deliver}
                                     source={require('../Assets/images/tuktukW1.png')}
                                 />
-                                
                             </View>
                             <View style={styles.deliverTitle} >
                                 <Text style={styles.Title}>ហៅរម៉ក</Text>
                             </View>
                             <View style={styles.deliverTitle1} >
-                                <Text style={{color:'white', fontSize:11}}>សម្រាប់ដឹកទំនិញចំនួនមធ្យម</Text>
+                                <Text style={{color:'white', fontSize:10,fontFamily:'KhmerOScontent',}}>សម្រាប់ដឹកទំនិញចំនួនមធ្យម</Text>
                             </View>
                         </TouchableOpacity>
                     </View>
@@ -106,7 +104,7 @@ export default class Home extends Component{
                                 <Text style={styles.Title}>ហៅឡាន</Text>
                             </View>
                             <View style={styles.deliverTitle1} >
-                                <Text style={{color:'white', fontSize:11}}>សម្រាប់ដឹកទំនិញចំនួនច្រើន</Text>
+                                <Text style={{color:'white', fontSize:10,fontFamily:'KhmerOScontent',}}>សម្រាប់ដឹកទំនិញចំនួនច្រើន</Text>
                             </View>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.deliverBox}
@@ -122,14 +120,14 @@ export default class Home extends Component{
                                 <Text style={styles.Title}>ឆែកឥវ៉ាន់</Text>
                             </View>
                             <View style={styles.deliverTitle1} >
-                                <Text style={{color:'white' , fontSize:11}}>ឆែកដំណើការដឹកជញ្ជូន</Text>
+                                <Text style={{color:'white' , fontSize:10,fontFamily:'KhmerOScontent',}}>ឆែកដំណើការដឹកជញ្ជូន</Text>
                             </View>
                         </TouchableOpacity>
                     </View>
                     </View>
                     <View style={styles.ads}>
                         <View style={styles.bennerAds}>
-                        <Text style={{color:'white',marginTop:-15,fontSize:25}}>.....</Text>
+                        <Text style={{color:'white',marginTop:0,fontSize:15}}>● ● ● ●</Text>
                             <Image
                                 style={styles.adsImage}
                                 source={require('../Assets/images/Benner-bottom.jpg')}
@@ -174,8 +172,9 @@ const styles = StyleSheet.create({
     },
     centerLogo: {
         width: 130,
-        height: 130,
-        marginTop:-10,
+        height: 120,
+        marginTop:-8,
+        // marginTop:10,
     },
     rightLogo: {
         width: 45,
@@ -183,7 +182,7 @@ const styles = StyleSheet.create({
         // padding: 5,
         paddingLeft: 10,
         // backgroundColor: 'grey',
-        marginTop: 38,
+        marginTop: 44,
         marginRight: 15,
     },
     ads:{
@@ -212,31 +211,31 @@ const styles = StyleSheet.create({
         marginTop:0,
     },
    Title:{
-        fontSize: 18,
+        fontSize: 14,
         color:'white',
+        fontFamily:'KhmerOScontent',
     },
     TitleBox:{
         flex: 0.5,
         flexDirection: 'row',
         justifyContent:'center',
         alignItems:'center',
-        backgroundColor:'yellow'
+        // backgroundColor:'yellow'
     },
-    smallTitle:{
-        fontSize: 16,
-        color:'black',
-    },
+    // smallTitle:{
+    //     fontSize: 16,
+    //     color:'black',
+    //     fontFamily:'KhmerOScontent',
+    // },
     order:{
         flex: 0.5,
         // height: 200,
         flexDirection: 'row',
-        
     },
     deliver:{
         width: 140,
         height: 140,
     },
-
     check:{
         flex: 0.5,
         // height: 200,
@@ -267,7 +266,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent:'center',
         // backgroundColor:'green'
-        
     },
     checkBox: {
         flex: 1,

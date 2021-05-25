@@ -10,7 +10,7 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
-
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
 
 import NavigationService from '../Service/navigationService'
@@ -28,10 +28,21 @@ export default class Home extends Component{
             <>
                 <View style={styles.container}>
                     <View style={styles.inner}>
+                        <View style={styles.btnBack}>
+                            <TouchableOpacity onPress={()=>{NavigationService.navigate(NAV_TYPES.FLOW)}}>
+                                <MaterialIcons
+                                    style={{color:'black',marginRight:'-12%',fontSize:33}} name="keyboard-arrow-left"> 
+                                </MaterialIcons>
+                            </TouchableOpacity>
+                        </View>
                         <View style={styles.benner}>
-                            <Text style={styles.text}> ព័ត៍មានលម្អិតពីការដឹក​​ </Text>
+                            <Text style={styles.headerTitle} fontFamily={'KhmerOScontent'}> ព័ត៍មានលម្អិតពីការដឹក​​ </Text>
+                        </View>    
+                        <View style={styles.btnBack}>
+
                         </View>
                     </View>
+                   
                     <View style={styles.row} >
                        <View style={styles.col1} >
                             <Text style={styles.titleDetail}>លេខកូដទំនិញ</Text>
@@ -155,17 +166,26 @@ const styles = StyleSheet.create({
         flex: 0.1,
         flexDirection: 'row',
         justifyContent: 'center',
-        backgroundColor: 'white'
+        backgroundColor: 'white',
     },
     benner: {
-        flex: 1,
+        flex: 0.8,
         justifyContent: 'center',
         alignItems: 'center',
         margin: 10,
     },
-    text:   {
-     fontSize: 30,
+    btnBack:{
+        flex: 0.2,
+        flexDirection: 'row',
+        justifyContent:'center',
+        alignItems:'center',
+        // backgroundColor: 'red',
+    },
+
+    headerTitle:   {
+     fontSize: 20,
      color: 'black',
+     fontFamily:'KhmerOScontent',
     },
     row:{
         flex: 0.05,
@@ -184,25 +204,31 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     titleDetail:{
-        fontSize: 18,
+        fontSize: 16,
+        color:'black',
+        fontFamily:'KhmerOScontent'
     },
     status:{
-        fontSize: 18,
-        color: '#32CD32'
+        fontSize: 16,
+        color: '#32CD32',
+        // color: '#c4fb6d',
+        
+        fontFamily:'KhmerOScontent',
     },
     footer:{
         width: '100%',
-        height: 60,
+        height: 50,
         flexDirection: 'row',
-        backgroundColor: '#000080',
+        backgroundColor: '#005792',
         justifyContent: 'center',
         alignItems: 'center',
         position: 'absolute',
         bottom: 0,
     },
     check:{
-        fontSize: 20,
+        fontSize: 18,
         color: 'white',
+        fontFamily:'KhmerOScontent'
     },
   });
   

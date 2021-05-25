@@ -1,3 +1,4 @@
+
 import React,{Component} from 'react'
 import {
     Text,
@@ -6,7 +7,7 @@ import {
     View,
     TouchableOpacity,
 } from 'react-native'
-
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import NavigationService from '../Service/navigationService'
 import { NAV_TYPES } from '../Navigation/navTypes'
 export default class History extends Component{
@@ -21,12 +22,22 @@ export default class History extends Component{
             <>
                 <View style={styles.container}>
                     <View style={styles.inner}>
+                        <View style={styles.btnBack}>
+                            <TouchableOpacity onPress={()=>{NavigationService.navigate(NAV_TYPES.MAIN_HOME01)}}>
+                                <MaterialIcons
+                                    style={{fontWeight:'bold',color:'#005792',marginRight:'5%',fontSize:40}} name="keyboard-arrow-left" size={15} color={'#ffffff'}> 
+                                </MaterialIcons>
+                            </TouchableOpacity>
+                        </View>
                         <View style={styles.benner}>
                             <Image
                                 style={styles.centerLogo}
                                 source={require('../Assets/images/logoMST.png')}
                             />
-                        </View>     
+                        </View>    
+                        <View style={styles.btnBack}>
+
+                        </View>
                     </View>
                     <View style={styles.listContainer}>
                         <TouchableOpacity style={styles.list}
@@ -56,17 +67,31 @@ export default class History extends Component{
                             </View>
                         </TouchableOpacity>
                     </View>
-                    <View style={styles.listContainerLast}>
+                    <View style={styles.listContainer}>
                         <TouchableOpacity style={styles.list}
                             onPress={()=>{NavigationService.navigate(NAV_TYPES.RESULTPACKAGE)}}>
+                            <View style={styles.imageBox} >
+                                <Image
+                                    style={styles.Logo}
+                                    source={require('../Assets/images/unSuccess.jpg')}
+                                />
+                            </View>
+                            <View style={styles.listTitleBox} >
+                            <Text style={styles.text}>ប្រវត្តិបញ្ញើបរាជ័យ</Text>
+                            </View>
+                        </TouchableOpacity>
+                    </View>
+                    <View style={styles.listContainerLast}>
+                        <TouchableOpacity style={styles.list}
+                            onPress={()=>{NavigationService.navigate(NAV_TYPES.DELAY)}}>
                                 <View style={styles.imageBox} >
                                     <Image
-                                        style={styles.Logo}
-                                        source={require('../Assets/images/unSuccess.jpg')}
+                                        style={styles.Logo1} 
+                                        source={require('../Assets/images/delay-Clock.jpg')}
                                     />
                                 </View>
                             <View style={styles.listTitleBox} >
-                                <Text style={styles.text}>ប្រវត្តិបញ្ញើបរាជ័យ</Text>
+                                <Text style={styles.text}>ឥវ៉ាន់ពន្យាពេលទទួល</Text>
                             </View> 
                         </TouchableOpacity>
                     </View>
@@ -83,9 +108,15 @@ const styles = StyleSheet.create({
     inner:{
         flex: 0.15,
         flexDirection: 'row',
-        justifyContent: 'center',
-        backgroundColor: 'white',
-        
+        // justifyContent: 'center',
+        // backgroundColor: 'yellow',
+    },
+    btnBack:{
+        flex: 0.2,
+        flexDirection: 'row',
+        justifyContent:'center',
+        alignItems:'center',
+        // backgroundColor: 'red',
     },
     listContainer:{
         flex: 0.1,
@@ -125,12 +156,21 @@ const styles = StyleSheet.create({
         height: 40,
         marginLeft: 20,
     },
-    text:{
-        fontSize: 24,
-        color: 'black',
-        fontWeight:'bold',
+    Logo1:{
+        width: 50,
+        height: 50,
+        marginLeft: 12,
     },
-
+    text:{
+        fontSize: 18,
+        color: 'black',
+        fontFamily:'KhmerOScontent',
+    },
+    centerLogo: {
+        flex: 1,
+        width: 150,
+        height: 80,
+    },
 
 
 
@@ -142,11 +182,11 @@ const styles = StyleSheet.create({
     //     backgroundColor: 'green',
     //     marginRight: 10,
     // },
-    // benner: {
-    //     flex: 1,
-    //     justifyContent: 'center',
-    //     alignItems: 'center',
-    // },
+    benner: {
+        flex: 0.6,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
     // inner1:{
     //     flex: 0.1,
     //     flexDirection: 'row'
@@ -178,12 +218,7 @@ const styles = StyleSheet.create({
     //     fontSize: 20,
     //     color: 'skyblue',
     // },
-    centerLogo: {
-        flex: 1,
-        width: 150,
-        height: 80,
-       
-    },
+    
     // Logo: {
     //     flex: 0.8,
     //     width: 50,

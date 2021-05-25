@@ -28,23 +28,32 @@ export default class Message extends Component{
             <>
                 <View style={styles.container}>
                     <View style={styles.CircleTick}>
-                        <View style={styles.Tick}>
+                        {/* <View style={styles.Tick}>
+                            <Image style={{marginTop:-90,width:'90%',height:"90%"}}
+                                source={require('../Assets/images/searchW001.png')}
+                            />
                             <Ionicons style={styles.Tickicon} name="ios-checkmark-sharp" > </Ionicons>
-                        </View>
+                        </View> */}
+                        <Image style={{width:150,height:150}}
+                            source={require('../Assets/images/DefentTick.png')}
+                        />
                     </View>
-                    <View style={styles.MessageBox}>
+                    {/* <View style={styles.MessageBox}> */}
                        <Text style={styles.MeassageTitle}>
-                            ការហៅរបស់លោកអ្នកទទួល{'\n'}បានជោគជ័យហើយ។{'\n'}
-                            សូមរងចាំការទាក់ទងពីខាង{'\n'}
-                            បុគ្គលិកយើងខ្ញុំ សូមអរគុណ!
+                            ការហៅរបស់លោកអ្នកទទួលបានជោគជ័យហើយ។សូមរងចាំការទាក់ទងពីយើងខ្ញុំបន្តិចទៀតនេះ សូមអរគុណ...!
                        </Text>
-                    </View>
+                    {/* </View> */}
 
-                    <TouchableOpacity style={styles.successMessage}
+                    <TouchableOpacity style={styles.ready}
                         onPress={() => NavigationService.navigate(NAV_TYPES.MAIN_HOME01)} >
                         <Text style={styles.Title}>រួចរាល់</Text>
                     </TouchableOpacity>
-                    
+                    {/* <View style={styles.successImageBox}>
+                        <Image
+                            style={{width:150,height:150}}
+                            source={require('../Assets/images/suprise.png')}
+                        />
+                    </View> */}
                 </View>
                 
             </>
@@ -55,13 +64,15 @@ const styles = StyleSheet.create({
     container:{
         flex: 1,
         backgroundColor: 'white',
+        position:'relative'
     },
     CircleTick:{
         flex: 0.3,
         flexDirection: 'row',
         justifyContent:'center',
         alignItems: 'center',
-        marginTop: 30,
+        // backgroundColor:'red',
+        marginTop:'5%'
     },
     Tick:{
         height: 150,
@@ -76,33 +87,38 @@ const styles = StyleSheet.create({
         color: 'white',
         paddingLeft: 25,
     },
-    MessageBox:{
-        flex: 0.4,
-        flexDirection: 'row',
-        justifyContent:'center',
-        alignItems: 'center',
-        marginLeft: 20,
-        marginRight: 20,
-    },
     MeassageTitle:{
-        fontSize: 30,
+        fontSize: 20,
         color: 'black',
-        textAlign: 'center'
+        textAlign: 'center',
+        fontFamily:'KhmerOScontent',
+        marginLeft: 28,
+        marginRight: 28,
+        marginTop:"5%"
     },
-    successMessage:{
+    ready:{
         flex: 0.1,
         flexDirection: 'row',
-        backgroundColor: '#32CD32',
+        backgroundColor: '#30cc25',
         justifyContent:'center',
         alignItems: 'center',
-        marginTop: '15%',
         marginLeft: '30%',
         marginRight: '30%',
+        // borderRadius:50,
+        marginTop:'5%'
     },
     Title:{
-        fontSize: 20,
-        fontWeight: 'bold',
-        color:  'white'
+        fontSize: 18,
+        color:  'white',
+        fontFamily:'KhmerOScontent',
+    },
+    successImageBox:{
+        flex: 0.25,
+        flexDirection: 'row',
+        justifyContent:'center',
+        alignItems: 'center',
+        top:'5%'
+        // backgroundColor:'red'
     },
   });
   

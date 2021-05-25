@@ -36,11 +36,11 @@ export default class SignIn extends Component{
                     {
                         one && one.value===this.state.radioResuil?
                         <View>
-                            <MaterialCommunityIcons name="check-circle-outline" size={25} color={'#3d84b8'}><Text style={{color:'#3d84b8', fontSize:16}}>{one['titile']}</Text></MaterialCommunityIcons>
+                            <MaterialCommunityIcons name="check-circle-outline" size={25} color={'#005792'}><Text style={{color:'#005792', fontSize:16}}>{one['titile']}</Text></MaterialCommunityIcons>
                             {/* <Text style={{color:'red'}}>{one['titile']}</Text> */}
                         </View>:
                         <View>
-                            <MaterialCommunityIcons name="checkbox-blank-circle-outline" size={25} color={'#3d84b8'}><Text style={{color:'#3d84b8', fontSize:16}}>{one['titile']}</Text> </MaterialCommunityIcons>    
+                            <MaterialCommunityIcons name="checkbox-blank-circle-outline" size={25} color={'#005792'}><Text style={{color:'#005792', fontSize:16}}>{one['titile']}</Text> </MaterialCommunityIcons>    
                         </View>
                     }
                 </TouchableOpacity>
@@ -61,30 +61,80 @@ export default class SignIn extends Component{
                             />
                         </View>     
                     </View>
-                    <View style={styles.SignInHeader}>
+                    {/* <View style={styles.SignInHeader}>
                         <Text style={styles.signIn}>ចុះឈ្មោះគណនី</Text>
-                    </View>
-                    
-                    <TextInput style={styles.inputBox} placeholder="ឈ្មោះហាង ឬ ឈ្មោះហ្វេសប៊ុកផេក"></TextInput>
-                    
-                        <TextInput style={styles.inputBox} placeholder="លេខទូរស័ព្ទ"></TextInput>
-                    
-                    
-                        <TextInput style={styles.inputBox} placeholder="លេខសម្ងាត់"></TextInput>
-                    
-                    
-                        <TextInput style={styles.inputBox} placeholder="បញ្ចាក់លេខសម្ងាត់"></TextInput>
-                    
-                    
-                        <TextInput style={styles.inputBox} placeholder="ឈ្មោះគណនី​​ធនាគា"></TextInput>
-                    
-                    
-                        <TextInput style={styles.inputBox} placeholder="លេខគណនី​​ធនាគា"></TextInput>
-                    
+                    </View> */}
+                    <Text style={styles.HeaderTitle}>
+                        ចុះឈ្មោះគណនី
+                    </Text>
+                    {/* <TextInput style={styles.inputBox} placeholder="ឈ្មោះហាង ឬ ឈ្មោះហ្វេសប៊ុកផេក"></TextInput>
+                
+                    <TextInput style={styles.inputBox} placeholder="លេខទូរស័ព្ទ"></TextInput>
+                
+                    <TextInput style={styles.inputBox} placeholder="លេខសម្ងាត់"></TextInput>
+                
+                    <TextInput style={styles.inputBox} placeholder="បញ្ចាក់លេខសម្ងាត់"></TextInput>
+                
+                    <TextInput style={styles.inputBox} placeholder="ឈ្មោះស្ថាប័ន​​ធនាគា"></TextInput>
 
+                    <TextInput style={styles.inputBox} placeholder="ឈ្មោះគណនី​​ធនាគា"></TextInput>
+                
+                    <TextInput style={styles.inputBox} placeholder="លេខគណនី​​ធនាគា"></TextInput>
+                 */}
+                    <TextInput style={styles.inputBox}
+                            placeholder="ឈ្មោះហាង ឬ ឈ្មោះហ្វេសប៊ុកផេក"
+                            placeholderTextColor="grey"
+                            keyboardType="text"
+                            color='black'
+                            fontSize={12}
+                            
+                        />
+                    <TextInput style={styles.inputBox}
+                        placeholder="លេខទូរស័ព្ទ"
+                        placeholderTextColor="grey"
+                        keyboardType="text"
+                        color='black'
+                        fontSize={12}
+                    />
+                    <TextInput style={styles.inputBox}
+                            placeholder="ពាក្យសម្ងាត់"
+                            placeholderTextColor="grey"
+                            keyboardType="text"
+                            color='black'
+                            fontSize={12}
+                            
+                        />
+                    <TextInput style={styles.inputBox}
+                        placeholder="បញ្ចាក់ពាក្យសម្ងាត់"
+                        placeholderTextColor="grey"
+                        keyboardType="text"
+                        color='black'
+                        fontSize={12}
+                    />
+                    <TextInput style={styles.inputBox}
+                            placeholder="ឈ្មោះស្ថាប័ន​​ធនាគា"
+                            placeholderTextColor="grey"
+                            keyboardType="text"
+                            color='black'
+                            fontSize={12}
+                    />
+                    <TextInput style={styles.inputBox}
+                        placeholder="ឈ្មោះគណនី​​ធនាគា"
+                        placeholderTextColor="grey"
+                        keyboardType="text"
+                        color='black'
+                        fontSize={12}
+                    />
+                    <TextInput style={styles.inputBox}
+                            placeholder="លេខគណនី​​ធនាគា"
+                            placeholderTextColor="grey"
+                            keyboardType="text"
+                            color='black'
+                            fontSize={12}
+                    />
                     <View style={styles.tick}>
                         {this.renderRadioButton()}
-                        <Text style={{color:'#3d84b8', fontSize:17}}>បើសិនអ្នកមិនមានគណនីធនាគាសូមចុចសញ្ញានេះ</Text>
+                        <Text style={{color:'#005792', fontSize:16}}>បើសិនអ្នកមិនមានគណនីធនាគាសូមចុចសញ្ញានេះ</Text>
                     </View>
 
                     <TouchableOpacity style={styles.btnSignIn}
@@ -122,58 +172,74 @@ const styles = StyleSheet.create({
     },
     centerLogo: {
         flex: 1,
-        width: 150,
+        width: 180,
         height: 100,
+        marginTop:'5%'
     },
-    SignInHeader:{
-        flex: 0.1,
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    signIn:{
+    HeaderTitle:{
         fontSize: 20,
-        color: '#344fa1',
+        color: '#005792',
+        textAlign: 'center',
+        fontFamily:'KhmerOScontent',
+        margin:'10%',
+        marginBottom:'0%',
+        marginTop:'0%',
     },
     inputBox:{
-        flex: 0.05,
-        flexDirection: 'row',
-        alignItems: 'center',
-        marginLeft:'10%',
-        marginRight:'10%',
-        margin: 10,
-        borderRadius: 50,
-        borderColor: '#000080',
-        borderWidth: 2,
-        fontSize: 18,
-        padding: 10,
-        paddingLeft:15,
-        height: 45,
-        margin: 10,
-        borderWidth: 1,   
+        flex:1,
+        flexDirection:"row",
+        borderBottomColor: '#005792',
+        borderBottomWidth: 1,
+        fontFamily:'KhmerOScontent', 
+        marginLeft:"10%",
+        marginRight:"10%"
     },
+    // SignInHeader:{
+    //     flex: 0.1,
+    //     flexDirection: 'row',
+    //     alignItems: 'center',
+    //     justifyContent: 'center',
+    // },
+    // signIn:{
+    //     fontSize: 20,
+    //     color: '#344fa1',
+    // },
+    // inputBox:{
+    //     flex: 0.05,
+    //     flexDirection: 'row',
+    //     alignItems: 'center',
+    //     marginLeft:'10%',
+    //     marginRight:'10%',
+    //     margin: 10,
+    //     borderRadius: 50,
+    //     borderColor: '#000080',
+    //     borderWidth: 2,
+    //     fontSize: 17,
+    //     padding: 10,
+    //     paddingLeft:15,
+    //     height: 40,
+    //     margin: 10,
+    //     borderWidth: 1,   
+    // },
 
     btnSignIn:{
-        flex: 0.5,
+        flex: 0.8,
         flexDirection: 'row',
         // alignItems: 'center',
         justifyContent: 'center',
         marginLeft:'10%',
         marginRight:'10%',
-        margin: 10,
-        borderRadius: 50,
-        borderColor: '#000080',
-        borderWidth: 2,
         fontSize: 20,
         padding: 7,
-        height: 40,
-        margin: 12,
-        borderWidth: 1,
-        backgroundColor: '#000080',
+        height: 50,
+        marginTop:0,
+        backgroundColor: '#005792',
+        alignItems: 'center',
     },
     signInTitle:{
-        fontSize: 16,
+        fontSize: 18,
         color: 'white',
+        fontFamily:'KhmerOScontent', 
     },
     tick:{
         flex: 0.1,
@@ -181,6 +247,7 @@ const styles = StyleSheet.create({
         justifyContent:'center',
         alignItems:'center',
         paddingBottom:10,
+        marginTop:10,
     },
   });
   

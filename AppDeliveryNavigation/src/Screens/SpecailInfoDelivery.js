@@ -10,7 +10,7 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
-
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
 
 import NavigationService from '../Service/navigationService'
@@ -27,9 +27,24 @@ export default class Home extends Component{
         return(
             <>
                 <View style={styles.container}>
-                    <View style={styles.inner}>
+                    {/* <View style={styles.inner}>
                         <View style={styles.benner}>
-                            <Text style={styles.text}> ព័ត៍មានលម្អិតពីការដឹក​​ </Text>
+                            <Text style={styles.text} fontFamily={'KhmerOScontent'}> ព័ត៍មានលម្អិតពីការដឹក​​ </Text>
+                        </View>
+                    </View> */}
+                    <View style={styles.inner}>
+                        <View style={styles.btnBack}>
+                            <TouchableOpacity onPress={() => NavigationService.goBack()}>
+                                <MaterialIcons
+                                    style={{color:'black',marginRight:'-12%',fontSize:33}} name="keyboard-arrow-left"> 
+                                </MaterialIcons>
+                            </TouchableOpacity>
+                        </View>
+                        <View style={styles.benner}>
+                            <Text style={styles.text} fontFamily={'KhmerOScontent'}> ព័ត៍មានលម្អិតពីការដឹក​​ </Text>
+                        </View>    
+                        <View style={styles.btnBack}>
+
                         </View>
                     </View>
                     <View style={styles.row} >
@@ -128,6 +143,10 @@ export default class Home extends Component{
                             <Text style={styles.titleDetail} >៖ 11.5$</Text>
                         </View>
                     </View>
+                    <TouchableOpacity style={styles.ready}
+                        onPress={() => NavigationService.navigate(NAV_TYPES.MAIN_HOME01)} >
+                        <Text style={styles.Title}>រួចរាល់</Text>
+                    </TouchableOpacity>
                 </View>
             </>
         )
@@ -137,23 +156,31 @@ const styles = StyleSheet.create({
     container:{
         flex: 1,
         backgroundColor: 'white',
-        position: 'relative',
+        position:'relative'
     },
     inner:{
         flex: 0.1,
         flexDirection: 'row',
         justifyContent: 'center',
-        backgroundColor: 'white'
+        backgroundColor: 'white',
     },
     benner: {
-        flex: 1,
+        flex: 0.8,
         justifyContent: 'center',
         alignItems: 'center',
         margin: 10,
     },
+    btnBack:{
+        flex: 0.2,
+        flexDirection: 'row',
+        justifyContent:'center',
+        alignItems:'center',
+        // backgroundColor: 'red',
+    },
     text:   {
-     fontSize: 30,
+     fontSize: 20,
      color: 'black',
+     fontFamily:'KhmerOScontent',
     },
     row:{
         flex: 0.05,
@@ -172,7 +199,24 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     titleDetail:{
+        fontSize: 16,
+        fontFamily:'KhmerOScontent',
+        color:'black'
+    },
+    ready:{
+        width:'100%',
+        height:50,
+        flexDirection: 'row',
+        backgroundColor: '#005792',
+        justifyContent:'center',
+        alignItems: 'center',
+        position:'absolute',
+        bottom:0,
+    },
+    Title:{
         fontSize: 18,
+        color:  'white',
+        fontFamily:'KhmerOScontent',
     },
     
   });

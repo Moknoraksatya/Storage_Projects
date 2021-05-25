@@ -1,7 +1,9 @@
+
+
 import React,{Component} from 'react'
 import {Text,StyleSheet,Image,View,TouchableOpacity} from 'react-native'
 
-
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import NavigationService from '../Service/navigationService'
 import { NAV_TYPES } from '../Navigation/navTypes'
 import { color } from 'react-native-reanimated'
@@ -16,10 +18,33 @@ export default class ResultPackage extends Component{
         return(
             <>
                 <View style={styles.container}>
-                    <View style={styles.inner}>
+                    {/* <View style={styles.inner}>
                         <View style={styles.benner}>
+                            <View style={styles.btnBack}>
+                                <TouchableOpacity onPress={()=>{NavigationService.navigate(NAV_TYPES.HISTORY)}}>
+                                    <MaterialIcons
+                                        style={{fontWeight:'bold',color:'#005792',marginRight:'20%',fontSize:20}} name="arrow-left" size={15} color={'#ffffff'}> 
+                                    </MaterialIcons>
+                                </TouchableOpacity>
+                            </View>
                             <Text style={styles.text}> សរុបចំនួន ០៦​ កញ្ចប់</Text>
-                            <Text style={styles.textSmall}> 03, មេសា,​ 2021 </Text>  
+                            <Text style={styles.textSmall} style={{fontFamily:'KhmerOScontent',}}> 03, មេសា,​ 2021 </Text>  
+                        </View>
+                    </View> */}
+                    <View style={styles.inner}>
+                        <View style={styles.btnBack}>
+                            <TouchableOpacity onPress={() => NavigationService.goBack()}>
+                                <MaterialIcons
+                                    style={{color:'#005792',marginRight:'0%',fontSize:40}} name="keyboard-arrow-left" size={15} color={'#ffffff'}> 
+                                </MaterialIcons>
+                            </TouchableOpacity>
+                        </View>
+                        <View style={styles.benner}>
+                        <Text style={styles.text}> សរុបចំនួន ០៧​ កញ្ចប់</Text>
+                            <Text style={styles.textSmall} style={{fontFamily:'KhmerOScontent',color:'#005792',}}> ០៧​,​ ឧសភា,​ ២០២១ </Text>  
+                        </View>    
+                        <View style={styles.btnBack}>
+
                         </View>
                     </View>
                         {/* dollar report of package */}
@@ -39,8 +64,46 @@ export default class ResultPackage extends Component{
                             <Text style={styles.textPrice}>10$</Text>
                         </View>  
                         <View style={styles.benner2Price}>
-                            <Text style={styles.textPrice}>6000៛</Text>
+                            <Text style={styles.textPrice}>4000៛</Text>
                         </View>       
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.inner1}
+                                onPress={()=>{NavigationService.navigate(NAV_TYPES.SPECAILINFODELIVERY)}}
+                                >
+                        <View style={styles.image}>
+                            <Image
+                                style={styles.SuccessImage}
+                                source={require('../Assets/images/Income.jpg')}
+                            />
+                        </View>
+                        <View style={styles.benner3}>
+                            <Text style={styles.text1}>ទួលគោក - ជ្រោយចង្វា</Text>
+                        </View>
+                        <View style={styles.bennerPrice}>
+                            <Text style={styles.textPrice}>10$</Text>
+                        </View>  
+                        <View style={styles.bennerPrice}>
+                            <Text style={styles.textPrice}>4000៛</Text>
+                        </View>           
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.inner1}
+                                onPress={()=>{NavigationService.navigate(NAV_TYPES.SPECAILINFODELIVERY)}}
+                                >
+                        <View style={styles.image}>
+                            <Image
+                                style={styles.SuccessImage}
+                                source={require('../Assets/images/Income.jpg')}
+                            />
+                        </View>
+                        <View style={styles.benner3}>
+                            <Text style={styles.text1}>ទួលគោក - ទឹកថ្លា</Text>
+                        </View>
+                        <View style={styles.bennerPrice}>
+                            <Text style={styles.textPrice}>10$</Text>
+                        </View>  
+                        <View style={styles.bennerPrice}>
+                            <Text style={styles.textPrice}>4000៛</Text>
+                        </View>           
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.inner1}
                                 onPress={()=>{NavigationService.navigate(NAV_TYPES.SPECAILINFODELIVERY)}}
@@ -58,7 +121,7 @@ export default class ResultPackage extends Component{
                             <Text style={styles.textPrice}>10$</Text>
                         </View>  
                         <View style={styles.bennerPrice}>
-                            <Text style={styles.textPrice}>6000៛</Text>
+                            <Text style={styles.textPrice}>4000៛</Text>
                         </View>           
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.inner1}
@@ -71,32 +134,13 @@ export default class ResultPackage extends Component{
                             />
                         </View>
                         <View style={styles.benner3}>
-                            <Text style={styles.text1}>ទួលគោក - ផ្សារដីហុយ</Text>
+                            <Text style={styles.text1}>ទួលគោក - ព្រែកព្នៅ</Text>
                         </View>
                         <View style={styles.bennerPrice}>
                             <Text style={styles.textPrice}>10$</Text>
                         </View>  
                         <View style={styles.bennerPrice}>
-                            <Text style={styles.textPrice}>6000៛</Text>
-                        </View>           
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.inner1}
-                                onPress={()=>{NavigationService.navigate(NAV_TYPES.SPECAILINFODELIVERY)}}
-                                >
-                        <View style={styles.image}>
-                            <Image
-                                style={styles.notSuccessImage}
-                                source={require('../Assets/images/unSuccess.jpg')}
-                            />
-                        </View>
-                        <View style={styles.benner3}>
-                            <Text style={styles.text1}>ទួលគោក - ព្រៃកព្នៅ</Text>
-                        </View>
-                        <View style={styles.bennerPrice}>
-                            <Text style={styles.textPrice}>10$</Text>
-                        </View>  
-                        <View style={styles.bennerPrice}>
-                            <Text style={styles.textPrice}>6000៛</Text>
+                            <Text style={styles.textPrice}>4000៛</Text>
                         </View>           
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.inner1}
@@ -109,51 +153,13 @@ export default class ResultPackage extends Component{
                             />
                         </View>
                         <View style={styles.benner3}>
-                            <Text style={styles.text1}>ទួលគោក - កប់ស្រូវ</Text>
+                            <Text style={styles.text1}>ទួលគោក - វេងស្រេង</Text>
                         </View>
                         <View style={styles.bennerPrice}>
                             <Text style={styles.textPrice}>10$</Text>
                         </View>  
                         <View style={styles.bennerPrice}>
-                            <Text style={styles.textPrice}>6000៛</Text>
-                        </View>           
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.inner1}
-                                onPress={()=>{NavigationService.navigate(NAV_TYPES.SPECAILINFODELIVERY)}}
-                                >
-                        <View style={styles.image}>
-                            <Image
-                                style={styles.SuccessImage}
-                                source={require('../Assets/images/Income.jpg')}
-                            />
-                        </View>
-                        <View style={styles.benner3}>
-                            <Text style={styles.text1}>ទួលគោក - ច្បារអំពៅ</Text>
-                        </View>
-                        <View style={styles.bennerPrice}>
-                            <Text style={styles.textPrice}>10$</Text>
-                        </View>  
-                        <View style={styles.bennerPrice}>
-                            <Text style={styles.textPrice}>6000៛</Text>
-                        </View>           
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.inner1}
-                                onPress={()=>{NavigationService.navigate(NAV_TYPES.SPECAILINFODELIVERY)}}
-                                >
-                        <View style={styles.image}>
-                            <Image
-                                style={styles.SuccessImage}
-                                source={require('../Assets/images/Income.jpg')}
-                            />
-                        </View>
-                        <View style={styles.benner3}>
-                            <Text style={styles.text1}>ទួលគោក - បឹងត្របែក</Text>
-                        </View>
-                        <View style={styles.bennerPrice}>
-                            <Text style={styles.textPrice}>10$</Text>
-                        </View>  
-                        <View style={styles.bennerPrice}>
-                            <Text style={styles.textPrice}>6000៛</Text>
+                            <Text style={styles.textPrice}>4000៛</Text>
                         </View>           
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.inner1}
@@ -165,13 +171,13 @@ export default class ResultPackage extends Component{
                             />
                         </View>
                         <View style={styles.benner2}>
-                            <Text style={styles.text1}>ទួលគោក - តាខ្មៅ</Text>
+                            <Text style={styles.text1}>ទួលគោក - ទួលសង្កែ</Text>
                         </View>  
                         <View style={styles.benner2Price}>
                             <Text style={styles.textPrice}>10$</Text>
                         </View>  
                         <View style={styles.benner2Price}>
-                            <Text style={styles.textPrice}>6000៛</Text>
+                            <Text style={styles.textPrice}>4000៛</Text>
                         </View>       
                     </TouchableOpacity>
                     {/* result */}
@@ -181,7 +187,7 @@ export default class ResultPackage extends Component{
                         </View>
                         <View style={styles.bennerTotal}>
                             <Text style={styles.totalPrice}>បរាជ័យ</Text>
-                            <Text style={styles.price} style={{marginLeft: 8,fontSize: 17,color: 'red',}}>20$</Text>
+                            <Text style={styles.price} style={{marginLeft: 8,fontSize: 14,color: 'red',}}>10$</Text>
                         </View>
                         <View style={styles.bennerTotalPrice}>
                             <Text style={styles.totalPrice}>តម្លៃសរុប</Text>
@@ -189,7 +195,7 @@ export default class ResultPackage extends Component{
                         </View>  
                         <View style={styles.bennerTotalPrice}>
                             <Text style={styles.totalPrice}>តម្លៃសេវា</Text>
-                            <Text style={styles.price}>48000៛</Text>
+                            <Text style={styles.price}>28000៛</Text>
                         </View>           
                     </View>
                 </View>
@@ -208,27 +214,36 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         backgroundColor: 'white',
     },
+    btnBack:{
+        flex: 0.2,
+        flexDirection: 'row',
+        justifyContent:'center',
+        alignItems:'center',
+        // backgroundColor: 'red',
+    },
     benner: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
         margin: 10,
+        // backgroundColor:'yellow'
     },
     text:   {
-     fontSize: 25,
-     color: 'red',
+     fontSize: 22,
+     color: '#005792',
+     fontFamily:'KhmerOScontent',
     },
     textPrice:{
-        fontSize: 16,
+        fontSize: 14,
         color: 'red',},
     inner1:{
-        flex: 0.08,
+        flex: 0.06,
         flexDirection: 'row',
         borderColor: '#dedbd3',
         borderTopWidth: 1,
     },
     bennerfirst: {
-        flex: 0.2,
+        flex: 0.16,
         justifyContent: 'center',
         alignItems: 'center',
     },
@@ -239,7 +254,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     image: {
-        flex: 0.2,
+        flex: 0.16,
         justifyContent: 'center',
         alignItems: 'center',
     },
@@ -248,7 +263,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     benner2Price: {
-        flex: 0.18,
+        flex: 0.20,
         justifyContent: 'center',
         alignItems: 'center',
     },
@@ -261,30 +276,34 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     bennerPrice: {
-        flex: 0.18,
+        flex: 0.20,
         justifyContent: 'center',
         alignItems: 'center',
     },
     bennerTotalPrice: {
-        flex: 0.17,
+        flex: 0.20,
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: 'white',
     },
     text:{
-        fontSize: 25,
-        color: 'red',
+        fontSize: 20,
+        color: '#005792',
+        fontFamily:'KhmerOScontent',
     },
     text1:{
-        fontSize: 17,
-        color: '#4349f7',
+        fontSize: 14,
+        color: '#005792',
+        fontFamily:'KhmerOScontent',
     },
     totalPrice:{
-        fontSize: 17,
-        color: '#4349f7',
+        marginTop:10,
+        fontSize: 14,
+        color: '#005792',
+        fontFamily:'KhmerOScontent',
     },
     price:{
-        fontSize: 17,
+        fontSize: 14,
         color: 'red',
     },
     centerLogo: {
@@ -293,12 +312,12 @@ const styles = StyleSheet.create({
         height: 100,
     },
     SuccessImage: {
-        width: 35,
-        height: 35,
-    },
-    notSuccessImage: {
         width: 30,
         height: 30,
+    },
+    notSuccessImage: {
+        width: 25,
+        height: 25,
         marginLeft: 15,
     },
   });
