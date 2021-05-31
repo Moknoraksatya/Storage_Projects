@@ -28,6 +28,7 @@
     "react-native-screens": "^2.7.0",
     "react-native-simple-radio-button": "^2.7.4",
     "react-native-slideshow": "^1.0.1",
+    "react-native-sms-verifycode": "^2.4.3",
     "react-native-step-indicator": "^1.0.3",
     "react-native-vector-icons": "^8.1.0",
     "react-navigation": "^4.2.2",

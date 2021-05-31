@@ -38,7 +38,15 @@ export default class MSTshop extends Component{
             show:false
         } 
     }
+
+    handleUserLogout(){
+        NavigationService.navigate(NAV_TYPES.LOGIN)
+        // alert('Logout Success')
+    }
+    
+
     render(){
+        const {user} = this.props
         return(
             <>
                 <View style={styles.container}>
@@ -159,7 +167,9 @@ export default class MSTshop extends Component{
                         </View>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.branch}
-                        onPress={()=>{NavigationService.navigate(NAV_TYPES.LOGIN)}}>
+                        // onPress={()=>{NavigationService.navigate(NAV_TYPES.LOGIN)}}
+                        onPress={() => this.handleUserLogout()}
+                        >
                         <View style={styles.ListTitleBox}>
                             <Text style={styles.ListTitle}>ចាកចេញ</Text>
                             <MaterialCommunityIcons style={{marginLeft:30}} name="arrow-right" size={25} color={'#ffffff'}> </MaterialCommunityIcons>

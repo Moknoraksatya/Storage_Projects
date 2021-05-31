@@ -2,7 +2,9 @@
 import NavigationService from '../Service/navigationService'
 import {NAV_TYPES} from '../Navigation/navTypes'
 import React,{Component,Fragment} from 'react'
+import  Loading  from "../Components/Loading";
 import { RadioButton } from 'react-native-paper';
+import SMSVerifyCode from 'react-native-sms-verifycode'
 import {
     Text,
     StyleSheet,
@@ -13,18 +15,70 @@ import {
     SafeAreaView,
     KeyboardAvoidingView,
     ScrollView,
+    Alert,
 } from 'react-native'
-export default class Login extends Component{
+export default class VerifyCode extends Component{
     constructor(prop){
         super(prop)
         this.state={
-           
+           dataInput:true,
+           code:'123456'
         }
     }
-    
+    UNSAFE_componentWillReceiveProps(nextProps){
+        const {user} = this.props
+        const {dataInput} = this.state
+        if(nextProps.user.userRegisterError && nextProps.user.userRegisterError !== user.userRegisterError){
+            alert('something went wrong')
+        }
+        if(nextProps.user.userRegister && nextProps.user.userRegister !== user.userRegister){
+            NavigationService.navigate(NAV_TYPES.MAIN_HOME01, {data: dataInput})
+        }
+    }
+    handleChangeInput(key, value){
+        const {dataInput} = this.state
+        var val = value
+        this.setState({
+            dataInput:{
+                ...dataInput,
+                [key]:val
+            }
+        })
+    }
+    async componentDidMount(){
+        const { navigation } = this.props;
+        var data = await navigation.getParam('data', false);
+        console.log(data);
+        this.setState({
+            dataInput:data,
+            code:'123456'
+        })
+    }
+    handleUserRegister(){
+        const { dataInput, code } = this.state;
+        var password = dataInput.password
+        var confirmPassword = dataInput.confirmPassword
+        // if (password != confirmPassword) {
+        //     alert('Password not match')
+        // }else{
+        //     this.props.userRegister({
+        //         ...dataInput,
+        //         smsCode:code 
+        //     })
+        // }
+        this.props.userRegister({
+            ...dataInput,
+            smsCode:code 
+        })
+    }
     render(){
+        const {dataInput} = this.state
+        const {user} = this.props
         return(
             <>
+                {user.pending &&
+                    <Loading/>
+                }
                 <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : 'null'} style={styles.container}>
                     <ScrollView style={{flex:1}}>
                             <View style={styles.inner}>
@@ -41,43 +95,25 @@ export default class Login extends Component{
                             <Text style={styles.HeaderTitle}>
                                 លេខកូដ ៦ ខ្ទង់​
                             </Text>           
-                            {/* <View style={styles.SignInHeader}>
-                                <Text style={styles.signIn}>សូមរងចាំ ទទួលសារ​</Text>
-                            </View>
-                            <View style={styles.SignInHeader}>
-                                <Text style={styles.signIn}> លេខកូដ ៦ ខ្ទង់</Text>
-                            </View> */}
                             <View style={styles.code}>
-                                <TextInput style={styles.inputBox}
-                                
-                                />  
-                                 <TextInput style={styles.inputBox}
-                                    
-                                /> 
-                                
-                                <TextInput style={styles.inputBox}
-                                    
-                                /> 
-                                <TextInput style={styles.inputBox}
-                                   
-                                /> 
-                                <TextInput style={styles.inputBox}
-                                    
-                                /> 
-                                <TextInput style={styles.inputBox}
-                                   
-                                />  
+                                <SMSVerifyCode
+                                    ref={ref => (this.verifycode = ref)}
+                                    onInputCompleted={this.onInputCompleted}
+                                    containerPaddingHorizontal={35}
+                                    verifyCodeLength={6}
+                                    codeFontSize={18}
+                                    codeViewBorderWidth={3}
+                                    codeViewBorderRadius={5}
+                                    codeViewBorderColor="#005792"
+                                    secureTextEntry="password"
+                                    value={dataInput.code}
+                                    onChangeText={(value) => this.handleChangeInput('code', value)}
+                                />
                             </View>
-                            
-                            
-                            {/* <TouchableOpacity style={styles.btnSignIn}
-                                onPress={() => NavigationService.navigate(NAV_TYPES.MAIN_HOME01)} >
-                                <Text style={styles.signInTitle}>ចូលគណនី</Text>
-                            </TouchableOpacity> */}
-                            <TouchableOpacity style={styles.btnSignIn}
-                        onPress={() => NavigationService.navigate(NAV_TYPES.MAIN_HOME01)} >
-                        <Text style={styles.signInTitle}> ចូលបន្ទាប់</Text>
-                    </TouchableOpacity>
+                        <TouchableOpacity style={styles.btnSignIn}
+                            onPress={() => this.handleUserRegister()} >
+                            <Text style={styles.signInTitle}> ចូលបន្ទាប់</Text>
+                        </TouchableOpacity>
                     </ScrollView>   
                 </KeyboardAvoidingView>
                 
@@ -122,19 +158,7 @@ const styles = StyleSheet.create({
         marginBottom:'0%',
         marginTop:'0%',
     },
-    // SignInHeader:{
-    //     flex: 0.1,
-    //     fontSize: 16,
-    //     // height: 30,
-    //     flexDirection: 'row',
-    //     // alignItems: 'center',
-    //     justifyContent: 'center',
-    //     // backgroundColor:'red'
-    // },
-    // signIn:{
-    //     fontSize: 20,
-    //     color: '#1E90FF',
-    // },
+
     code:{
         height: 40,
         flexDirection:'row',
@@ -179,23 +203,6 @@ const styles = StyleSheet.create({
         color: 'white',
         fontFamily:'KhmerOScontent'
     },
-    // btnSignIn:{
-    //     fontSize: 16,
-    //     height: 40,
-    //     alignItems: 'center',
-    //     justifyContent: 'center',
-    //     marginLeft:'10%',
-    //     marginRight:'10%',
-    //     margin: 10,
-    //     borderRadius: 50,
-    //     borderColor: '#4682B4',
-    //     backgroundColor:'#4682B4',
-    //     borderWidth: 2,
-    // },
-    // signInTitle:{
-    //     fontSize: 20,
-    //     color: 'white',
-    // },
     register:{
         flex: 0.15,
         fontSize: 16,
@@ -210,3 +217,26 @@ const styles = StyleSheet.create({
         color: '#1E90FF',
     },
 })
+
+
+
+
+  {/* <TextInput style={styles.inputBox}
+                                
+                                />  
+                                 <TextInput style={styles.inputBox}
+                                    
+                                /> 
+                                
+                                <TextInput style={styles.inputBox}
+                                    
+                                /> 
+                                <TextInput style={styles.inputBox}
+                                   
+                                /> 
+                                <TextInput style={styles.inputBox}
+                                    
+                                /> 
+                                <TextInput style={styles.inputBox}
+                                   
+                                />   */}

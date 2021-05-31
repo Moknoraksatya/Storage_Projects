@@ -1,1 +1,1 @@
-export const API_URL = 'https://js.amatak.net/'
+export const API_URL = 'https://mstapi.amatak.net/'

@@ -1,6 +1,7 @@
 
 import NavigationService from '../Service/navigationService'
 import {NAV_TYPES} from '../Navigation/navTypes'
+import  Loading  from "../Components/Loading";
 import React,{Component,Fragment,useState} from 'react'
 import {
     Text,
@@ -32,35 +33,65 @@ var hobbies = [
 export default class Login extends Component{
     constructor(prop){
         super(prop)
-        this.state={
-           
+        this.state = {
+            dataInput:{
+                phone:'070228666',
+                // 070228666
+                password:'123456'
+                // 123456
+            }
         }
     }
-
+    
     UNSAFE_componentWillReceiveProps(nextProps){
-        
+        const {user} = this.props
+        if(nextProps.user.userLoginError && nextProps.user.userLoginError !== user.userLoginError){
+            if(nextProps.user.userLoginError.data && nextProps.user.userLoginError.data.message && nextProps.user.userLoginError.data.message == "user_not_match"){
+                alert('user not match')
+            }else{
+                alert('something went wrong')
+            }
+        }
+        if(nextProps.user.userLogin && nextProps.user.userLogin !== user.userLogin){
+            NavigationService.navigate(NAV_TYPES.MAIN_HOME01)
+        }
     }
     
+    handleChangeInput(key, value){
+        const {dataInput} = this.state
+        var val = value
+        if(key == 'phone'){
+            val = val.replace(/[^0-9]/g, '')
+        }
+        this.setState({
+            dataInput:{
+                ...dataInput,
+                [key]:val
+            }
+        })
+    }
+    handleUserLogin(){
+        const {dataInput} = this.state
+        var phone = dataInput.phone
+        if (phone[0] == '0') {
+            phone = phone.substr(1, phone.length - 1)
+        }
+        phone = "855" + phone
+        this.props.userLogin({
+            ...dataInput,
+            phone: phone
+        })
+    }
     render(){
+        const {dataInput} = this.state
+        const {user} = this.props
         return(
             <>
+                {user.pending &&
+                    <Loading/>
+                }
                 <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : 'null'} style={styles.container}>
                     <ScrollView style={{flex:1}}>
-                    
-                            {/* <View style={styles.inner}>
-                                <View style={styles.benner}>
-                                    <Image
-                                        style={styles.centerLogo}
-                                        source={require('../Assets/images/logoMST.png')}
-                                    />
-                                </View>     
-                            </View>                    */}
-                            {/* <View style={styles.SignInHeader}>
-                                <Text style={styles.signIn}>ចូលគណនី</Text>
-                            </View> */}
-
-
-                            {/* <Button title="ភាសា" onPress={()=>{this.setState({show:true})}}></Button> */}
                             <View style={styles.inner}>
                                 <TouchableOpacity style={styles.flag} onPress={()=>{this.setState({show:true})}}>
                                     <Image style={{width:"120%",height:"100%"}}
@@ -107,34 +138,30 @@ export default class Login extends Component{
                             <Text style={styles.HeaderTitle}>
                                 ចូលគណនី
                             </Text> 
-                            {/* <TextInput style={styles.inputBox}
-                                placeholder="លេខទូរស័ព្ទ"
-                                placeholderTextColor="grey"
-                            />
-                            <TextInput style={styles.inputBox}
-                                placeholder="លេខសម្ងាត់"
-                                placeholderTextColor="grey"
-                                returnKeyType='go'
-                                secureTextEntry
-                                autoCorrect={false}
-                            /> */}
                             <TextInput style={styles.inputBox}
                                 placeholder="បញ្ចូលលេខទូរស័ព្ទ"
                                 placeholderTextColor="grey"
-                                keyboardType="text"
+                                keyboardType="numeric"
                                 color='black'
-                                fontSize={12}
+                                fontSize={14}
+                                value={dataInput.phone}
+                                onChangeText={(value) => this.handleChangeInput('phone', value)}
+                                maxLength={10}
                             />
                             <TextInput style={styles.inputBox}
                                 placeholder="បញ្ចូលពាក្យសម្ងាត់"
                                 placeholderTextColor="grey"
                                 keyboardType="text"
                                 color='black'
-                                fontSize={12}
+                                fontSize={16}
                                 marginBottom={'3%'}
+                                secureTextEntry={true}
+                                value={dataInput.password}
+                                onChangeText={(value) => this.handleChangeInput('password', value)}
                             />
                             <TouchableOpacity style={styles.btnSignIn}
-                                onPress={() => NavigationService.navigate(NAV_TYPES.MAIN_HOME01)} >
+                                onPress={() => this.handleUserLogin()} 
+                                >
                                 <Text style={styles.signInTitle}>ចូលគណនី</Text>
                             </TouchableOpacity>
                             <TouchableOpacity style={styles.register}
@@ -200,12 +227,6 @@ const styles = StyleSheet.create({
         alignItems:'center',
         borderBottomColor:'#005792',
         borderBottomWidth:1,
-
-        // fontSize:18,textAlign:'center',
-        // justifyContent:'center',
-        // alignItems:'center',
-        // paddingLeft:'5%',
-        // paddingTop:25,
     },
     radioTitle:{
         fontSize:16,
@@ -275,12 +296,7 @@ const styles = StyleSheet.create({
         marginRight:'10%',
         margin: 10,
         fontFamily:'KhmerOScontent',
-        // borderRadius: 50,
-        // borderColor: '#1E90FF',
-        // backgroundColor:'#fb3640',
         backgroundColor:'#005792',
-        
-        // borderWidth: 2,
     },
     signInTitle:{
         fontSize: 20,
@@ -294,46 +310,169 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        // backgroundColor:'#02475e'
     },
     registerLink:{
         fontSize: 16,
         color: '#005792',
         fontFamily:'KhmerOScontent',
     },
-   
-    // benner: {
-    //     flex: 1,
-    //     justifyContent: 'center',
-    //     alignItems: 'center',
-    //     margin: 10,
-    // },
-    // centerLogo: {
-    //     flex: 1,
-    //     width: 150,
-    //     height: 100,
-    // },
-    // inputBox:{
-    //     flex: 0.05,
-    //     flexDirection: 'row',
-    //     alignItems: 'center',
-    //     marginLeft:'10%',
-    //     marginRight:'10%',
-    //     borderRadius: 50,
-    //     borderColor: '#000080',
-    //     borderWidth: 2,
-    //     fontSize: 18,
-    //     padding: 10,
-    //     paddingLeft: 15,
-    //     height: 45,
-    //     margin: 12,
-    //     borderWidth: 1,   
-    // },
-    
-    // inputText:{
-    //     fontSize: 20,
-    //     color: 'grey',
-    //     paddingLeft: 20,
-    // },
-   
 })
+
+
+
+
+
+
+// import React,{Component} from 'react'
+// import {Text, StyleSheet, SafeAreaView, TouchableOpacity, View, Image, TextInput} from 'react-native'
+// import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+// import NavigationService from '../Service/navigationService'
+// import {NAV_TYPES} from '../Navigation/navTypes'
+// import  Loading  from "../Components/Loading/";
+// export default class Login extends Component{
+//     constructor(prop){
+//         super(prop)
+//         this.state = {
+//             dataInput:{
+//                 phone:'085995530',
+//                 password:'12345678'
+//             }
+//         }
+//     }
+
+//     UNSAFE_componentWillReceiveProps(nextProps){
+//         const {user} = this.props
+//         if(nextProps.user.userLoginError && nextProps.user.userLoginError !== user.userLoginError){
+//             if(nextProps.user.userLoginError.data && nextProps.user.userLoginError.data.message && nextProps.user.userLoginError.data.message == "user_not_match"){
+//                 alert('user not match')
+//             }else{
+//                 alert('something went wrong')
+//             }
+//         }
+//     }
+
+//     handleChangeInput(key, value){
+//         const {dataInput} = this.state
+//         var val = value
+//         if(key == 'phone'){
+//             val = val.replace(/[^0-9]/g, '')
+//         }
+//         this.setState({
+//             dataInput:{
+//                 ...dataInput,
+//                 [key]:val
+//             }
+//         })
+//     }
+//     handleUserLogin(){
+//         const {dataInput} = this.state
+//         var phone = dataInput.phone
+//         if (phone[0] == '0') {
+//             phone = phone.substr(1, phone.length - 1)
+//         }
+//         phone = "855" + phone
+//         this.props.userLogin({
+//             ...dataInput,
+//             phone: phone
+//         })
+//     }
+//     render(){
+//         const {dataInput} = this.state
+//         const {user} = this.props
+//         return(
+//             <>
+//                 {user.pending &&
+//                     <Loading/>
+//                 }
+//                 <View style={ styles.container}>
+//                     <View style={styles.header}>
+//                         <Image
+//                             style={styles.logo}
+//                             source={require('../Assets/images/logoMST.png')}
+//                         />
+//                     </View>
+//                     <View style={styles.box}>
+//                         <SafeAreaView>
+//                             <TextInput
+//                                 style={styles.input}
+//                                 keyboardType={'numeric'}
+//                                 placeholder="លេខទូរស័ព្ទ"
+//                                 value={dataInput.phone}
+//                                 onChangeText={(value) => this.handleChangeInput('phone', value)}
+//                                 maxLength={10}
+//                             />
+//                         </SafeAreaView>
+//                         <SafeAreaView>
+//                             <TextInput
+//                                 style={styles.input}
+//                                 placeholder="លេខសំងាត់"
+//                                 secureTextEntry={true}
+//                                 value={dataInput.password}
+//                                 onChangeText={(value) => this.handleChangeInput('password', value)}
+//                             />
+//                         </SafeAreaView>
+//                     </View>
+//                     <View style={styles.text}>
+//                         <TouchableOpacity
+//                             style={styles.button}
+//                             onPress={() => this.handleUserLogin()} 
+//                         >
+//                             <Text style={styles.color}>ចូលគណនី</Text>
+//                         </TouchableOpacity>
+//                     </View>
+//                 </View>
+//             </>
+//         )
+//     }
+// }
+
+// const styles = StyleSheet.create({
+//     container:{
+//         flex:1,
+//         alignItems:'center',
+//     },
+//     header:{
+//         marginTop:15,
+//     },
+//     logo:{
+//         width: 200,
+//         height: 125,
+//     },
+//     input:{
+//         margin: 10,
+//         height: 50,
+//         width:280,
+//         borderRadius:25,
+//         borderWidth: 2,
+//         borderColor:'#00716F',
+//         paddingHorizontal:30,
+//         fontSize:16,
+//     },
+//     button:{
+//         margin: 10,
+//         backgroundColor:'blue',
+//         height: 50,
+//         width:180,
+//         alignItems:'center',
+//         justifyContent:'center',
+//         borderRadius:25,
+//     },
+//     color:{
+//         color:'white',
+//         fontFamily:'KhmerOScontent',
+//         fontSize:15,
+//     },
+//     button1:{
+//         margin: 10,
+//         height: 50,
+//         width:180,
+//         alignItems:'center',
+//         justifyContent:'center',
+//         borderRadius:25,
+//     },
+//     color1:{
+//         color:'#00716F',
+//         fontFamily:'KhmerOScontent',
+//         fontSize:15,
+//     },
+// })
