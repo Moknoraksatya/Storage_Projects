@@ -20,19 +20,25 @@ import {
 export default class VerifyCode extends Component{
     constructor(prop){
         super(prop)
-        this.state={
-           dataInput:true,
-           code:'123456'
+        this.state={    
+            dataInput:false,
+            code:'123456'
         }
     }
     UNSAFE_componentWillReceiveProps(nextProps){
         const {user} = this.props
         const {dataInput} = this.state
         if(nextProps.user.userRegisterError && nextProps.user.userRegisterError !== user.userRegisterError){
-            alert('something went wrong')
+            if(nextProps.user.userRegisterError.data && nextProps.user.userRegisterError.data.message && nextProps.user.userRegisterError.data.message == "duplicate_number"){
+                alert('Your phone number has been registered, please try another number!')
+            }else if(nextProps.user.userRegisterError.data && nextProps.user.userRegisterError.data.message && nextProps.user.userRegisterError.data.message == "invalid_sms"){
+                alert('Your SMS code is wrong!')
+            }else{
+                alert('something went wrong')
+            }
         }
         if(nextProps.user.userRegister && nextProps.user.userRegister !== user.userRegister){
-            NavigationService.navigate(NAV_TYPES.MAIN_HOME01, {data: dataInput})
+            NavigationService.navigate(NAV_TYPES.LOGIN, {data: dataInput})
         }
     }
     handleChangeInput(key, value){
@@ -45,34 +51,56 @@ export default class VerifyCode extends Component{
             }
         })
     }
-    async componentDidMount(){
+    componentDidMount(){
         const { navigation } = this.props;
-        var data = await navigation.getParam('data', false);
-        console.log(data);
+        var data = navigation.getParam('data', false);
         this.setState({
             dataInput:data,
-            code:'123456'
         })
     }
     handleUserRegister(){
         const { dataInput, code } = this.state;
-        var password = dataInput.password
-        var confirmPassword = dataInput.confirmPassword
-        // if (password != confirmPassword) {
-        //     alert('Password not match')
-        // }else{
-        //     this.props.userRegister({
-        //         ...dataInput,
-        //         smsCode:code 
-        //     })
-        // }
+        var phone = dataInput.phone
+        if (phone[0] == '0') {
+            phone = phone.substr(1, phone.length - 1)
+        }
+        phone = "855" + phone
         this.props.userRegister({
             ...dataInput,
+            phone:phone,
             smsCode:code 
         })
     }
+
+    handleCodeChange(value){
+        console.log('value', value);
+        this.setState({
+            code:value
+        })
+    }
+
+
+
+
+    // onInputCompleted = (text) => {
+    //     Alert.alert(
+    //       text,
+    //       'ផ្ទៀងផ្ទាត់លេខកូដ',
+    //       [
+    //           {
+    //           text: 'បន្ទាប់',
+    //         },
+    //       ]
+    //     )
+    // }
+     
+    // reset = () => {
+    //     this.verifycode.reset()
+    //     this.setState({codeText: ''})
+    // }
+
     render(){
-        const {dataInput} = this.state
+        const {dataInput, code} = this.state
         const {user} = this.props
         return(
             <>
@@ -90,12 +118,12 @@ export default class VerifyCode extends Component{
                                 </View>     
                             </View>        
                             <Text style={styles.HeaderTitle}>
-                                សូមរងចាំ ទទួលសារ​
+                                សូមរងចាំទទួលសារ​
                             </Text>   
                             <Text style={styles.HeaderTitle}>
                                 លេខកូដ ៦ ខ្ទង់​
                             </Text>           
-                            <View style={styles.code}>
+                            <View style={styles.Boxcode}>
                                 <SMSVerifyCode
                                     ref={ref => (this.verifycode = ref)}
                                     onInputCompleted={this.onInputCompleted}
@@ -106,17 +134,21 @@ export default class VerifyCode extends Component{
                                     codeViewBorderRadius={5}
                                     codeViewBorderColor="#005792"
                                     secureTextEntry="password"
-                                    value={dataInput.code}
-                                    onChangeText={(value) => this.handleChangeInput('code', value)}
+                                    value={code}
+                                    initialCodes={[1,2,3,4,5,6]}
+                                    onInputChangeText={(value) => this.handleCodeChange(value)}
                                 />
                             </View>
                         <TouchableOpacity style={styles.btnSignIn}
                             onPress={() => this.handleUserRegister()} >
                             <Text style={styles.signInTitle}> ចូលបន្ទាប់</Text>
                         </TouchableOpacity>
+                        {/* <TouchableOpacity style={styles.BtnReset}
+                            onPress={() => this.onInputCompleted()} >
+                            <Text style={styles.signInTitle}> Reset</Text>
+                        </TouchableOpacity> */}
                     </ScrollView>   
                 </KeyboardAvoidingView>
-                
             </>
         )
     }
@@ -131,8 +163,6 @@ const styles = StyleSheet.create({
         flex: 0.2,
         flexDirection: 'row',
         fontSize: 16,
-        // padding: 10,
-        // height: 110,
         justifyContent: 'center',
         backgroundColor: '#fff'
     },
@@ -159,7 +189,7 @@ const styles = StyleSheet.create({
         marginTop:'0%',
     },
 
-    code:{
+    Boxcode:{
         height: 40,
         flexDirection:'row',
         marginTop: 50,
@@ -215,6 +245,21 @@ const styles = StyleSheet.create({
     registerLink:{
         fontSize: 18,
         color: '#1E90FF',
+    },
+    BtnReset:{
+        flexDirection: 'row',
+        // alignItems: 'center',
+        justifyContent: 'center',
+        marginLeft:'12%',
+        marginRight:'12%',
+        fontSize: 20,
+        padding: 7,
+        height: 50,
+        marginTop:0,
+        backgroundColor: '#005792',
+        alignItems: 'center',
+        borderRadius: 5,
+        marginTop:10,
     },
 })
 

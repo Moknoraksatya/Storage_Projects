@@ -17,10 +17,60 @@ import { NAV_TYPES } from '../Navigation/navTypes'
 export default class ResultPackage extends Component{
     constructor(prop){
         super(prop)
-        this.state={
-           
-        } 
+        this.state = {
+            // dataInput:{
+            //     name:'Smey',
+            //     phone:'070228666',
+            //     password:'123456',
+            //     confirmPassword:'123456',
+            //     bankName:'ABA',
+            //     accountName:'KEO MONIRAKSMEY',
+            //     accountNumber:'000362164',
+            //     smsCode:'123456'
+            // }
+        }
     }
+
+    // UNSAFE_componentWillReceiveProps(nextProps){
+    //     const {user} = this.props
+    //     const {dataInput} = this.state
+    //     if(nextProps.user.userGetSMSError && nextProps.user.userGetSMSError !== user.userGetSMSError){
+    //         alert('something went wrong')
+    //     }
+    //     if(nextProps.user.userGetSMS && nextProps.user.userGetSMS !== user.userGetSMS){
+    //         NavigationService.navigate(NAV_TYPES.VERIFYCODE, {data: dataInput})
+    //     }
+    // }
+    
+    // handleChangeInput(key, value){
+    //     const {dataInput} = this.state
+    //     var val = value
+    //     if(key == 'phone'){
+    //         val = val.replace(/[^0-9]/g, '')
+    //     }
+    //     this.setState({
+    //         dataInput:{
+    //             ...dataInput,
+    //             [key]:val
+    //         }
+    //     })
+    // }
+    // handleUserGetSMS(){
+    //     const {dataInput} = this.state
+    //     var phone = dataInput.phone
+    //     var password = dataInput.password
+    //     var confirmPassword = dataInput.confirmPassword
+    //     if (phone[0] == '0') {
+    //         phone = phone.substr(1, phone.length - 1)
+    //         if (password != confirmPassword) {
+    //             alert('Password not match')
+    //         }else{
+    //             phone = "855" + phone
+    //             this.props.userGetSMS(phone)
+    //         }
+    //     }
+       
+    // }
     render(){
         return(
             <>

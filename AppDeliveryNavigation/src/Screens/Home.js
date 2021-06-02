@@ -21,10 +21,11 @@ export default class Home extends Component{
     constructor(prop){
         super(prop)
         this.state={
-        
+            dataSlide:[]
         } 
     }
     render(){
+        const {dataSlide} = this.state
         return(
             <>
                 <View style={styles.container}>
@@ -40,7 +41,7 @@ export default class Home extends Component{
                         </View>
 
                         <TouchableOpacity
-                            onPress={()=>{NavigationService.navigate(NAV_TYPES.HISTORY)}}
+                            onPress={()=>{NavigationService.navigate(NAV_TYPES.MAIN_HOME)}}
                             >
                             <View style={styles.benner}>
                                 <FontAwesome style={styles.rightLogo} name="navicon" size={33} color={'#ffffff'}> </FontAwesome>

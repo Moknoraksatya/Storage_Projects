@@ -10,6 +10,7 @@ import {
     USER_LOGOUT,
     USER_REGISTER,
     USER_REGISTER_SMS,
+    // SEARCH_PACKAGE,
 } from './reducer'
 
 export function* userLogin({payload}){
@@ -71,6 +72,7 @@ export function* userRegister({payload}){
                 userRegister:nomalize(userRegister)
             }
         });
+        // yield NavigationService.reset(NAV_TYPES.CORE);
     } catch (e) {
         const parseError = yield JSON.parse(JSON.stringify(e));
         console.log('message', parseError);
@@ -94,6 +96,7 @@ export function* userGetSMS({payload}){
                 userGetSMS:nomalize(userGetSMS)
             }
         });
+        
     } catch (e) {
         const parseError = yield JSON.parse(JSON.stringify(e));
         console.log('message', parseError);
@@ -105,9 +108,34 @@ export function* userGetSMS({payload}){
 }
 
 
+//SEARCH_PACKAGE
+// export function* searchPackage({payload}){
+//     try {
+//         const searchPackage = yield call(axios.post, "app/search/seller/5", payload);
+//         yield put({
+//             type: success(SEARCH_PACKAGE),
+//             payload:{
+//                 searchPackage:nomalize(searchPackage)
+//             }
+//         });
+//         // yield NavigationService.reset(NAV_TYPES.CORE);
+//     } catch (e) {
+//         const parseError = yield JSON.parse(JSON.stringify(e));
+//         console.log('message', parseError);
+//         yield put({
+//             type:error(SEARCH_PACKAGE),
+//             payload:{searchPackageError:parseError}
+//         })
+//     }
+// }
+
+
+
+
 export function* userSaga(){
     yield takeLatest(USER_LOGIN,userLogin);
     yield takeLatest(USER_LOGOUT,userLogout);
     yield takeLatest(USER_REGISTER,userRegister);
     yield takeLatest(USER_REGISTER_SMS,userGetSMS);
+    // yield takeLatest(SEARCH_PACKAGE,searchPackage);
 }

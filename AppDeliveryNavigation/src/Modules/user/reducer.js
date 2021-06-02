@@ -4,7 +4,7 @@ export const USER_LOGIN = 'USER_LOGIN';
 export const USER_LOGOUT = 'USER_LOGOUT';
 export const USER_REGISTER = 'USER_REGISTER';
 export const USER_REGISTER_SMS = 'USER_REGISTER_SMS';
-
+// export const SEARCH_PACKAGE = 'SEARCH_PACKAGE';
 export const userLogin = (payload) =>({
     type: USER_LOGIN,
     payload
@@ -16,11 +16,17 @@ export const userLogout = () =>({
 
 export const userRegister = (payload) =>({
     type: USER_REGISTER,
+    payload
 });
 
-export const userGetSMS = () =>({
+export const userGetSMS = (payload) =>({
     type: USER_REGISTER_SMS,
+    payload
 });
+
+// export const searchPackage = () =>({
+//     type: SEARCH_PACKAGE,
+// });
 
 const initialState = {
     pending: false,
@@ -111,6 +117,28 @@ const userReducer = (state = initialState, action) => {
     case abort(USER_REGISTER_SMS):{
         return{...state,pending:false};
     }
+
+    //SEARCH_PACKAGE
+    // case SEARCH_PACKAGE:{
+    //     return{...state,pending:true};
+    // }
+    // case success(SEARCH_PACKAGE):{
+    //     return{
+    //         ...state,
+    //         ...action.payload,
+    //         pending:false};
+    // }
+    // case error(SEARCH_PACKAGE):{
+    //     return{...state,
+    //         error:true,
+    //         pending:false,
+    //         ...action.payload
+    //     };
+    // }
+    // case abort(SEARCH_PACKAGE):{
+    //     return{...state,pending:false};
+    // }
+
 
     /**
      * DEFAULT_CASE

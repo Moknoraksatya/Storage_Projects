@@ -26,13 +26,12 @@ export default class SignIn extends Component{
         this.state = {
             dataInput:{
                 name:'Smey',
-                phone:'070228666',
+                phone:'0702286649',
                 password:'123456',
                 confirmPassword:'123456',
                 bankName:'ABA',
                 accountName:'KEO MONIRAKSMEY',
                 accountNumber:'000362164',
-                smsCode:'123456'
             }
         }
         // this.state={radioResuil:null} 
@@ -204,7 +203,6 @@ export default class SignIn extends Component{
                         >
                         <Text style={styles.signInTitle}> ចូលបន្ទាប់</Text>
                     </TouchableOpacity>
-                    
                 </ScrollView>
                 </KeyboardAvoidingView>
             </>
